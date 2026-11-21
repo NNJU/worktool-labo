@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ワークツール試し隊｜AIツールとデスクガジェット検証メディア</title>
+<meta name="description" content="AIツールとデスクガジェットを実際に試して比較する検証メディア。YouTubeショート動画と連動し、詳細レビューと比較表を公開。">
+<style>
+  :root{
+    --bg:#05070d; --panel:#0b101c; --panel2:#0e1626; --line:#1e293b;
+    --text:#e6f1ff; --muted:#8b9bb4; --cyan:#22d3ee; --lime:#a3e635; --mag:#f471b5;
+    --mono:"JetBrains Mono","SFMono-Regular",Consolas,"Hiragino Sans",monospace;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--text);line-height:1.75;
+    font-family:system-ui,-apple-system,"Hiragino Sans","Noto Sans JP",sans-serif;
+    background-image:linear-gradient(rgba(34,211,238,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(34,211,238,.05) 1px,transparent 1px);
+    background-size:44px 44px;}
+  .wrap{max-width:960px;margin:0 auto;padding:0 20px}
+  header.top{display:flex;justify-content:space-between;align-items:center;padding:18px 0;border-bottom:1px solid var(--line)}
+  .logo{font-family:var(--mono);font-weight:700;letter-spacing:.08em;font-size:1.05rem}
+  .logo .dot{color:var(--cyan)} .logo .lab{color:var(--lime)}
+  nav a{color:var(--muted);text-decoration:none;margin-left:18px;font-size:.9rem;font-family:var(--mono)}
+  nav a:hover{color:var(--cyan)}
+  .hero{padding:64px 0 40px}
+  .term{display:inline-block;font-family:var(--mono);font-size:.8rem;color:var(--lime);background:#0a1408;border:1px solid #26351a;border-radius:8px;padding:6px 12px;margin-bottom:20px}
+  .term::before{content:"● ● ●  ";color:#475569}
+  h1{font-size:2.4rem;line-height:1.3;margin:0 0 14px;font-weight:800}
+  h1 .grad{background:linear-gradient(90deg,var(--cyan),var(--lime));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero p{color:var(--muted);max-width:640px;margin:0 0 26px}
+  .cta{display:inline-block;background:linear-gradient(90deg,var(--cyan),#0ea5e9);color:#03121c;font-weight:800;border-radius:10px;padding:14px 28px;text-decoration:none;box-shadow:0 0 24px rgba(34,211,238,.35)}
+  .cta.sub{background:transparent;color:var(--cyan);border:1px solid var(--cyan);box-shadow:none;margin-left:10px}
+  section{padding:28px 0}
+  h2{font-family:var(--mono);font-size:1.05rem;letter-spacing:.1em;color:var(--cyan);margin:0 0 18px}
+  h2::before{content:"// "}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+  .card{background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:14px;padding:22px;position:relative;overflow:hidden}
+  .card::after{content:"";position:absolute;inset:0 0 auto 0;height:2px;background:linear-gradient(90deg,var(--cyan),transparent)}
+  .card .spec{font-family:var(--mono);font-size:.72rem;color:var(--mag);letter-spacing:.12em}
+  .card h3{margin:6px 0 8px;font-size:1.1rem}
+  .card p{color:var(--muted);margin:0;font-size:.94rem}
+  .card .metric{font-family:var(--mono);color:var(--lime);font-size:.82rem;margin-top:12px}
+  .panel{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:24px}
+  .panel p{color:var(--muted);margin:0}
+  .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;font-family:var(--mono);font-size:.88rem}
+  .step{border:1px dashed #334155;border-radius:10px;padding:14px;color:var(--muted)}
+  .step b{color:var(--text);display:block;margin-bottom:4px}
+  footer{border-top:1px solid var(--line);margin-top:32px;padding:26px 0 40px;color:var(--muted);font-size:.85rem;font-family:var(--mono)}
+  footer a{color:var(--muted)}
+  @media(max-width:560px){h1{font-size:1.8rem}.cta.sub{margin:10px 0 0}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="logo">WorkTool<span class="dot">_</span><span class="lab">LABO</span></div>
+    <nav><a href="#reviews">REVIEWS</a><a href="#videos">VIDEOS</a><a href="#about">ABOUT</a><a href="#pr">PR</a></nav>
+  </header>
+
+  <div class="hero">
+    <span class="term">$ verify --tools --gadgets --daily</span>
+    <h1>道具は、試してから選ぶ。<br><span class="grad">AIツール × デスクガジェット</span>検証メディア</h1>
+    <p>「ワークツール試し隊」は、仕事を速くするAIツールとデスク周りのガジェットを、実際に試して比較する小さな編集部です。YouTubeショートで要点を、ここで比較表と注意点の詳細を公開します。</p>
+    <a class="cta" href="https://www.youtube.com/@worktoollabo" target="_blank" rel="noopener">YouTubeで見る</a>
+    <a class="cta sub" href="#reviews">検証カテゴリを見る</a>
+  </div>
+
+  <section id="reviews">
+    <h2>CATEGORIES</h2>
+    <div class="cards">
+      <div class="card"><span class="spec">CAT-01 / AI TOOLS</span><h3>AIツール比較</h3><p>文章作成・議事録・画像生成などのAIツールを無料枠で実際に試し、速度と精度を比べます。</p><div class="metric">&gt; benchmark: tasks / min</div></div>
+      <div class="card"><span class="spec">CAT-02 / SAAS</span><h3>仕事効率化SaaS</h3><p>タスク管理・スケジュール・ドキュメント共有。毎日の作業を速くするサービスを検証。</p><div class="metric">&gt; benchmark: clicks saved</div></div>
+      <div class="card"><span class="spec">CAT-03 / GADGETS</span><h3>デスクガジェット</h3><p>モニターアーム、キーボード、照明、充電まわり。作業環境を数値と体感で評価します。</p><div class="metric">&gt; benchmark: setup score</div></div>
+    </div>
+  </section>
+
+  <section id="videos">
+    <h2>HOW IT WORKS</h2>
+    <div class="steps">
+      <div class="step"><b>01 / SHORTS</b>YouTubeショートで要点を60〜90秒で紹介</div>
+      <div class="step"><b>02 / ARTICLE</b>このHPで比較表・注意点・リンクを公開</div>
+      <div class="step"><b>03 / UPDATE</b>価格や仕様が変わったら記事を更新</div>
+    </div>
+  </section>
+
+  <section id="about">
+    <h2>ABOUT</h2>
+    <div class="panel"><p>当メディアは、運営者の個人活動とは切り離したメディア専用ブランドとして運営しています。紹介する製品・サービスは、公開情報と実際の試用に基づいて選定します。</p></div>
+  </section>
+
+  <section id="pr">
+    <h2>PR / DISCLOSURE</h2>
+    <div class="panel"><p>当サイトと動画には、アフィリエイトプログラムによる広告リンクが含まれます。リンク先で購入・登録があった場合、当メディアに報酬が発生することがあります。広告を含むコンテンツには #PR 等の表記を行い、報酬の有無で評価を変えることはありません。</p></div>
+  </section>
+
+  <footer>
+    <p>© WorkTool_LABO editorial dept. ｜ <a href="#pr">広告について</a> ｜ <a href="privacy.html">プライバシーポリシー</a> ｜ <a href="https://www.youtube.com/@worktoollabo" target="_blank" rel="noopener">お問い合わせ（YouTube）</a></p>
+  </footer>
+</div>
+</body>
+</html>
