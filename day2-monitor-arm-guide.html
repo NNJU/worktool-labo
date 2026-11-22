@@ -7,60 +7,79 @@
 <meta name="description" content="モニターアームの3方式（ガススプリング式・メカニカルスプリング式・ポール式）を比較し、買う前に確認すべき4点チェック表を公開。サンワダイレクト 100-LAC006の仕様も公式情報で整理しました。">
 <style>
   :root{
-    --bg:#05070d; --panel:#0b101c; --panel2:#0e1626; --line:#1e293b;
-    --text:#e6f1ff; --muted:#8b9bb4; --cyan:#22d3ee; --lime:#a3e635; --mag:#f471b5;
-    --mono:"JetBrains Mono","SFMono-Regular",Consolas,"Hiragino Sans",monospace;
+    --bg:#f3f7fc; --surface:#ffffff; --line:#dcebf5;
+    --ink:#17334d; --muted:#5d7285; --blue:#0284c7; --sky:#0ea5e9; --cyan:#06b6d4; --accent:#f97316; --green:#16a34a;
+    --shadow:0 10px 30px rgba(2,132,199,.10);
   }
   *{box-sizing:border-box}
-  body{margin:0;background:var(--bg);color:var(--text);line-height:1.8;
-    font-family:system-ui,-apple-system,"Hiragino Sans","Noto Sans JP",sans-serif;
-    background-image:linear-gradient(rgba(34,211,238,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(34,211,238,.05) 1px,transparent 1px);
-    background-size:44px 44px;}
+  body{margin:0;background:var(--bg);color:var(--ink);line-height:1.9;
+    font-family:system-ui,-apple-system,"Hiragino Sans","Noto Sans JP",sans-serif;}
   .wrap{max-width:860px;margin:0 auto;padding:0 20px}
-  header.top{display:flex;justify-content:space-between;align-items:center;padding:18px 0;border-bottom:1px solid var(--line)}
-  .logo{font-family:var(--mono);font-weight:700;letter-spacing:.08em;font-size:1.05rem}
-  .logo .dot{color:var(--cyan)} .logo .lab{color:var(--lime)}
-  .logo a{color:var(--text);text-decoration:none}
-  nav a{color:var(--muted);text-decoration:none;margin-left:18px;font-size:.9rem;font-family:var(--mono)}
-  nav a:hover{color:var(--cyan)}
+  header.top{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);margin:0 -20px;padding:12px 20px;
+    display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+  .logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.05rem}
+  .logo .mark{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:12px;
+    background:linear-gradient(135deg,var(--sky),var(--cyan));color:#fff;font-weight:900;font-size:1.1rem;
+    box-shadow:0 6px 16px rgba(14,165,233,.35)}
+  .logo .sub{display:block;font-size:.68rem;font-weight:700;letter-spacing:.14em;color:var(--muted);line-height:1.2}
+  .logo a{color:var(--ink);text-decoration:none;display:flex;align-items:center;gap:10px}
+  nav{display:flex;align-items:center;flex-wrap:wrap}
+  nav a{color:var(--muted);text-decoration:none;margin-left:18px;font-size:.9rem;font-weight:700}
+  nav a:hover{color:var(--blue)}
+  nav a.yt{margin-left:20px;background:linear-gradient(90deg,#ef4444,#dc2626);color:#fff;border-radius:999px;
+    padding:7px 16px;box-shadow:0 6px 16px rgba(220,38,38,.28)}
+  nav a.yt:hover{color:#fff;opacity:.92}
   main{padding:36px 0}
-  .term{display:inline-block;font-family:var(--mono);font-size:.8rem;color:var(--lime);background:#0a1408;border:1px solid #26351a;border-radius:8px;padding:6px 12px;margin-bottom:20px}
-  h1{font-size:1.9rem;line-height:1.4;margin:0 0 10px;font-weight:800}
-  .meta{font-family:var(--mono);font-size:.82rem;color:var(--muted);margin-bottom:24px}
-  .notice{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--mag);border-radius:10px;padding:14px 18px;color:var(--muted);font-size:.92rem;margin:0 0 28px}
-  .notice b{color:var(--text)}
-  h2{font-family:var(--mono);font-size:1.05rem;letter-spacing:.1em;color:var(--cyan);margin:36px 0 14px}
-  h2::before{content:"// "}
+  .badge{display:inline-block;font-size:.78rem;font-weight:800;letter-spacing:.08em;color:#fff;
+    background:linear-gradient(90deg,var(--accent),#facc15);border-radius:999px;padding:6px 14px;margin-bottom:18px;
+    box-shadow:0 6px 14px rgba(249,115,22,.30)}
+  h1{font-size:1.9rem;line-height:1.4;margin:0 0 10px;font-weight:900}
+  .meta{font-size:.85rem;font-weight:700;color:#ea580c;margin-bottom:24px}
+  .notice{background:#fff7ed;border:1px solid #fed7aa;border-left:5px solid var(--accent);border-radius:14px;padding:18px 22px;color:var(--muted);font-size:.92rem;margin:0 0 28px}
+  .notice b{color:var(--ink)}
+  h2{font-size:1.25rem;font-weight:900;letter-spacing:.04em;color:var(--ink);margin:46px 0 16px;display:flex;align-items:center;gap:10px}
+  h2::before{content:"";width:10px;height:24px;border-radius:6px;background:linear-gradient(180deg,var(--accent),#facc15)}
   h3{font-size:1.1rem;margin:24px 0 8px}
-  p{margin:0 0 14px}
-  .panel{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:22px;margin:0 0 14px}
+  p{margin:0 0 16px}
+  .panel{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:26px;margin:0 0 14px;box-shadow:var(--shadow)}
   .panel p:last-child{margin-bottom:0}
-  table{width:100%;border-collapse:collapse;font-size:.92rem;margin:0 0 14px}
-  th,td{border:1px solid var(--line);padding:10px 12px;text-align:left;vertical-align:top}
-  th{background:var(--panel2);font-family:var(--mono);color:var(--cyan);font-weight:600}
-  td .num{font-family:var(--mono);color:var(--lime)}
-  .verdict{border:1px dashed #334155;border-radius:10px;padding:16px 18px;margin:0 0 14px}
-  .verdict b{color:var(--lime)}
+  .tscroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0 0 18px;background:var(--surface);
+    border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow)}
+  table{width:100%;min-width:680px;border-collapse:collapse;font-size:.95rem;line-height:1.7}
+  th,td{border-bottom:1px solid var(--line);padding:14px 16px;text-align:left;vertical-align:top}
+  th{white-space:nowrap}
+  td:first-child{white-space:nowrap}
+  tr:last-child td{border-bottom:none}
+  th{background:#ffedd5;color:#9a3412;font-weight:800}
+  td .num{color:#ea580c;font-weight:800}
+  .verdict{background:#f0fdf4;border:2px dashed #86efac;border-radius:16px;padding:20px 24px;margin:0 0 14px}
+  .verdict b{color:var(--green)}
   ul{margin:0 0 14px;padding-left:22px;color:var(--muted)}
   li{margin-bottom:6px}
-  li b{color:var(--text)}
-  .afflink{display:inline-block;background:linear-gradient(90deg,var(--cyan),#0ea5e9);color:#03121c;font-weight:800;border-radius:10px;padding:12px 24px;text-decoration:none;margin:6px 0 14px}
+  li b{color:var(--ink)}
+  .afflink{display:inline-block;background:linear-gradient(90deg,#f97316,#ef4444);color:#fff;font-weight:800;border-radius:999px;padding:14px 28px;text-decoration:none;margin:6px 0 14px;box-shadow:0 10px 22px rgba(249,115,22,.35)}
+  .afflink:hover{opacity:.92}
+  .product-fig{margin:0 0 20px;background:linear-gradient(135deg,#e0f2fe,#ecfeff 60%,#fff7ed);
+    border:1px solid var(--line);border-radius:18px;padding:24px 24px 16px;box-shadow:var(--shadow)}
+  .product-fig svg{display:block;width:100%;height:auto}
+  .product-fig figcaption{margin-top:12px;font-size:.82rem;line-height:1.6;color:var(--muted);text-align:center}
   .back{margin-top:40px;padding-top:20px;border-top:1px solid var(--line)}
-  .back a{color:var(--cyan);text-decoration:none;font-family:var(--mono);font-size:.9rem}
-  footer{border-top:1px solid var(--line);margin-top:32px;padding:26px 0 40px;color:var(--muted);font-size:.85rem;font-family:var(--mono)}
-  footer a{color:var(--muted)}
-  @media(max-width:560px){h1{font-size:1.5rem}table{font-size:.82rem}}
+  .back a{display:inline-block;color:var(--blue);text-decoration:none;font-weight:800;font-size:.9rem;background:#fff;border:2px solid #7dd3fc;border-radius:999px;padding:8px 18px}
+  footer{border-top:1px solid var(--line);margin-top:32px;padding:26px 0 40px;color:var(--muted);font-size:.85rem}
+  footer a{color:var(--blue);text-decoration:none}
+  @media(max-width:560px){h1{font-size:1.5rem}nav a{margin-left:12px}.panel{padding:20px}.notice{padding:16px 18px}}
 </style>
 </head>
 <body>
 <div class="wrap">
   <header class="top">
-    <div class="logo"><a href="index.html">WorkTool<span class="dot">_</span><span class="lab">LABO</span></a></div>
-    <nav><a href="index.html#reviews">REVIEWS</a><a href="https://www.youtube.com/@worktoollabo" target="_blank" rel="noopener">YOUTUBE</a><a href="index.html#pr">PR</a></nav>
+    <div class="logo"><a href="index.html"><span class="mark">W</span><span>ワークツール試し隊<span class="sub">WorkTool LABO</span></span></a></div>
+    <nav><a href="index.html#reviews">REVIEWS</a><a href="index.html#pr">PR</a><a class="yt" href="https://www.youtube.com/@worktoollabo" target="_blank" rel="noopener">YouTube</a></nav>
   </header>
 
   <main>
-    <span class="term">$ verify --monitor-arm --day2</span>
+    <span class="badge">DAY 2</span>
     <h1>モニターアーム入門：ガススプリング式とポール式、失敗しない選び方</h1>
     <p class="meta">DAY 2 / デスクガジェット / 仕様確認日：2026-11-22</p>
 
@@ -76,28 +95,83 @@
 
     <h2>TYPES</h2>
     <p>モニターアームは、動きの仕組みで大きく3つの方式に分かれます。</p>
+    <div class="tscroll">
     <table>
+      <colgroup><col style="width:23%"><col style="width:21%"><col style="width:28%"><col style="width:28%"></colgroup>
       <tr><th>方式</th><th>高さ調整</th><th>特徴</th><th>向いている人</th></tr>
       <tr><td><b>ガススプリング式</b></td><td>片手でスッと動かせる</td><td>ガスシリンダーの力で支える。調整が一番ラク。価格は高め</td><td>立ったり座ったりで高さを頻繁に変える人、複数人で1台のモニターを共有する人</td></tr>
       <tr><td><b>メカニカルスプリング式</b></td><td>バネの力で支える。調整は手で行う</td><td>ガス式とポール式の中間。ガス式より安く、ポール式より調整しやすい</td><td>初めての1台。たまに高さを変えたい人</td></tr>
       <tr><td><b>ポール式（支柱固定式）</b></td><td>工具で位置を決めて固定</td><td>構造がシンプルで安く、安定性が高い。こまめな調整には向かない</td><td>高さを一度決めたらほぼ動かさない人。とにかく安く・確実に付けたい人</td></tr>
     </table>
+    </div>
     <p>「ガス式が最上」というわけではありません。高さを変える頻度が低いなら、ポール式のほうが安くて安定しています。自分の使い方に合った方式を選ぶのが、失敗しないコツです。</p>
 
     <h2>CHECKLIST</h2>
     <p>買う前に、自分の環境でこの4点を確認してください。1つでも合わないと、取り付けられない・ぐらつく原因になります。</p>
+    <div class="tscroll">
     <table>
+      <colgroup><col style="width:26%"><col style="width:37%"><col style="width:37%"></colgroup>
       <tr><th>チェック項目</th><th>確認方法</th><th>合わないとどうなるか</th></tr>
       <tr><td><span class="num">1. モニターの重さ</span></td><td>モニターの仕様表で「質量（スタンドを除く）」を確認し、アームの耐荷重の範囲内か見る</td><td>重すぎるとアームが下がる・固定できない。軽すぎてもバネ式は浮いてしまうことがある</td></tr>
       <tr><td><span class="num">2. VESA規格</span></td><td>モニター背面のネジ穴の間隔を確認。75×75mmか100×100mmが主流</td><td>穴の間隔が合わないと取り付けられない（200×200mm以上の大型モニターは別規格のアームが必要）</td></tr>
       <tr><td><span class="num">3. 天板の厚み</span></td><td>デスク天板の厚さを測る。クランプ式は対応範囲（例：1〜5cm）がある</td><td>厚すぎ・薄すぎるとクランプが挟めない</td></tr>
       <tr><td><span class="num">4. クランプを挟む場所</span></td><td>デスクの奥側にクランプ分のスペースと、壁・棚とのすき間があるか確認</td><td>奥に壁がぴったり付いているとクランプが入らない。グロメット穴があるデスクならグロメット式も選択肢</td></tr>
     </table>
+    </div>
 
     <h2>EXAMPLE</h2>
     <h3>サンワダイレクト モニターアーム 100-LAC006（メカニカルスプリング式）</h3>
     <p>初めての1台の例として、仕様を整理します。ガススプリング式ではなく<b>メカニカルスプリング式</b>です。方式の違いを混同しないよう、ここに明記します。</p>
+    <figure class="product-fig">
+      <svg viewBox="0 0 640 360" role="img" aria-label="モニターアームでモニターを持ち上げたデスク環境のイラスト">
+        <defs>
+          <linearGradient id="pbg" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#e0f2fe"/><stop offset=".6" stop-color="#ecfeff"/><stop offset="1" stop-color="#fff7ed"/>
+          </linearGradient>
+          <linearGradient id="pscr" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#7dd3fc"/><stop offset="1" stop-color="#06b6d4"/>
+          </linearGradient>
+        </defs>
+        <rect x="4" y="4" width="632" height="352" rx="20" fill="url(#pbg)"/>
+        <circle cx="556" cy="66" r="42" fill="#bae6fd" opacity=".55"/>
+        <circle cx="70" cy="90" r="26" fill="#fed7aa" opacity=".6"/>
+        <!-- モニター -->
+        <rect x="238" y="62" width="224" height="140" rx="12" fill="#17334d"/>
+        <rect x="250" y="74" width="200" height="116" rx="6" fill="url(#pscr)"/>
+        <rect x="266" y="90" width="110" height="12" rx="6" fill="#ffffff" opacity=".85"/>
+        <rect x="266" y="112" width="150" height="8" rx="4" fill="#ffffff" opacity=".55"/>
+        <rect x="266" y="128" width="132" height="8" rx="4" fill="#ffffff" opacity=".55"/>
+        <rect x="266" y="152" width="26" height="26" rx="4" fill="#f97316"/>
+        <rect x="302" y="158" width="26" height="20" rx="4" fill="#ffffff" opacity=".8"/>
+        <rect x="338" y="146" width="26" height="32" rx="4" fill="#ffffff" opacity=".65"/>
+        <!-- アーム（画面の左側から回り込む関節アーム＋背面ポール） -->
+        <rect x="150" y="112" width="96" height="12" rx="6" fill="#64748b"/>
+        <rect x="140" y="112" width="12" height="86" rx="6" fill="#64748b"/>
+        <circle cx="150" cy="118" r="11" fill="#475569"/>
+        <circle cx="240" cy="118" r="9" fill="#475569"/>
+        <rect x="342" y="202" width="14" height="52" fill="#64748b"/>
+        <rect x="322" y="240" width="54" height="14" rx="5" fill="#475569"/>
+        <!-- デスク -->
+        <rect x="40" y="254" width="560" height="14" rx="7" fill="#d6a05a"/>
+        <rect x="66" y="268" width="12" height="58" fill="#94a3b8"/>
+        <rect x="562" y="268" width="12" height="58" fill="#94a3b8"/>
+        <!-- 台座がなくなって空いたスペース -->
+        <rect x="252" y="222" width="196" height="26" rx="8" fill="none" stroke="#0284c7" stroke-width="2" stroke-dasharray="6 5"/>
+        <!-- キーボードとマウス -->
+        <rect x="256" y="238" width="188" height="13" rx="6" fill="#f1f5f9" stroke="#cbd5e1"/>
+        <ellipse cx="492" cy="245" rx="17" ry="8" fill="#f1f5f9" stroke="#cbd5e1"/>
+        <!-- ノート -->
+        <rect x="88" y="234" width="94" height="17" rx="3" fill="#ffffff" stroke="#fed7aa"/>
+        <path d="M98 242h70M98 247h52" stroke="#fdba74" stroke-width="2" stroke-linecap="round"/>
+        <!-- 観葉植物 -->
+        <path d="M540 254l6-20h36l6 20z" fill="#f97316"/>
+        <path d="M564 234c-2-14-10-22-22-26M564 234c1-15 8-25 20-30M564 234c0-12-3-20 0-30" stroke="#16a34a" stroke-width="5" fill="none" stroke-linecap="round"/>
+      </svg>
+      <figcaption>イラスト（イメージ）：モニターアームでモニターを持ち上げたデスク環境のイメージ図です。実際の商品（100-LAC006）の写真ではありません。</figcaption>
+    </figure>
+    <div class="tscroll">
     <table>
+      <colgroup><col style="width:24%"><col style="width:76%"></colgroup>
       <tr><th>項目</th><th>仕様（公式・楽天商品ページより、2026-11-22確認）</th></tr>
       <tr><td>方式</td><td>メカニカルスプリング式（スプリングアーム）</td></tr>
       <tr><td>対応サイズ</td><td><span class="num">13〜32インチ</span></td></tr>
@@ -107,6 +181,7 @@
       <tr><td>本体サイズ・重量</td><td>約W10×D9〜53.5×H8.5〜39.8cm、約1.79kg</td></tr>
       <tr><td>保証期間</td><td>購入日より1年</td></tr>
     </table>
+    </div>
     <p>13〜32インチ・2〜8kgという範囲は、一般的な24〜27インチのモニターをカバーします。自分のモニターの重さとVESAを確認して、範囲内なら候補になります。</p>
     <a class="afflink" href="https://hb.afl.rakuten.co.jp/ichiba/59c9683b.bc2fdc8a.59c9683c.70170620/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fsanwadirect%2F100-lac006%2F" target="_blank" rel="noopener sponsored">#PR 楽天市場で 100-LAC006 を見る（サンワダイレクト楽天市場店）</a>
     <p>価格は変動します。リンク先の表示価格をご確認ください。なお、リンク作成時（2026-11-21）の参考表示は3,980円でしたが、現在の価格ではありません。</p>
