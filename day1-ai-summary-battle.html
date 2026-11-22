@@ -70,23 +70,23 @@
 <body>
 <div class="wrap">
   <header class="top">
-    <div class="logo"><a href="index.html"><span class="mark">W</span><span>ワークツール試し隊<span class="sub">WorkTool LABO</span></span></a></div>
-    <nav><a href="index.html#reviews">REVIEWS</a><a href="index.html#pr">PR</a><a class="yt" href="https://www.youtube.com/@worktoollabo" target="_blank" rel="noopener">YouTube</a></nav>
+    <div class="logo"><a href="index.html"><span class="mark">W</span><span>ワークツール試し隊<span class="sub">ワークツールラボ</span></span></a></div>
+    <nav><a href="index.html#reviews">検証記事</a><a href="index.html#pr">PR</a><a class="yt" href="https://www.youtube.com/@worktoollabo" target="_blank" rel="noopener">YouTube</a></nav>
   </header>
 
   <main>
-    <span class="badge">DAY 1</span>
+    <span class="badge">第1弾</span>
     <h1>AI要約対決：ChatGPTとClaudeを同じ課題で比べた結果</h1>
-    <p class="meta">DAY 1 / AIツール比較 / 検証日：2026-11-21</p>
+    <p class="meta">第1弾 / AIツール比較 / 検証日：2026-11-21</p>
 
     <p class="notice"><b>開示：</b>この記事にアフィリエイトリンクはありません。検証はすべて無料枠・無料利用の範囲で行っています。AIの回答は時期やバージョンで変わるため、結果は検証日時点のものです。なお、当初はGeminiも含めた3社比較の予定でしたが、VM用GoogleアカウントではGeminiアプリにアクセスできず（「現在、お使いのアカウントでアプリにアクセスできません」と表示）、Geminiの検証はできませんでした。時間を置いて再試行する予定です。</p>
 
-    <h2>CONCLUSION</h2>
+    <h2>結論</h2>
     <div class="panel">
       <p><b>結論：</b>速さはClaudeが圧倒的でした。約5秒で185字の要約を返し、4つの要点と結論をすべてカバーしました。ChatGPTも198字で要点をすべて押さえましたが、回答完了までに60秒以内（正確な秒数は未計測）と、Claudeより時間がかかりました。出来の差は小さく、使い分けのポイントは「速さ」と「見やすさ」です。ChatGPTは①〜④の箇条書きで要点がひと目で分かる形、Claudeは具体例（通知を切る、短い休憩など）を残した文章型でした。</p>
     </div>
 
-    <h2>METHOD</h2>
+    <h2>検証方法</h2>
     <p>同じ文章・同じ指示で3つのAIに要約させ、送信から回答完了までの時間を計測しました。Claudeはこのセッション内で直接実行し、ChatGPTはVMのブラウザからゲスト利用（ログイン不要）で実行しました。GeminiはVM用Googleアカウントでサインインできましたが、Geminiアプリ側が「現在、お使いのアカウントでアプリにアクセスできません」とアクセスを拒否し、送信に至りませんでした（5回試行）。指示は3つとも同一です。</p>
     <div class="panel">
       <p><b>指示（共通）：</b>「以下の文章を200字程度に要約してください。重要なポイントを漏らさず、結論も含めてください。」</p>
@@ -94,7 +94,7 @@
       <p><b>計測：</b>送信ボタンを押してから回答の生成が止まるまでの時間を秒単位で計測。Claudeの時間はセッション内の計測のため概算です。</p>
     </div>
 
-    <h2>RESULTS</h2>
+    <h2>結果</h2>
     <div class="tscroll">
     <table>
       <colgroup><col style="width:14%"><col style="width:27%"><col style="width:13%"><col style="width:46%"></colgroup>
@@ -105,7 +105,7 @@
     </table>
     </div>
 
-    <h2>SUMMARIES</h2>
+    <h2>要約の実物</h2>
     <h3>Claudeの要約（185字）</h3>
     <blockquote><p>在宅勤務の集中力は、場所・時間・コミュニケーション・自分のリズムの四つを整えて生まれる。仕事専用スペースでオンオフを区切り、集中時間帯には通知を切って一つの作業に取り組み、短い休憩で頭をリセットする。質問はため込まず早めに相談し、孤立感と手戻りを減らす。朝型・夜型など自分の調子に合わせて仕事を並べ替え、完璧を目指さずできる工夫から一つずつ取り入れるのが長く続けるコツ。</p></blockquote>
     <h3>ChatGPTの要約（198字）</h3>
@@ -113,10 +113,10 @@
     <h3>Geminiの要約</h3>
     <blockquote><p>未実施。VM用Googleアカウント（nnju.muse.vmwork@gmail.com）ではGeminiアプリにアクセスできませんでした。時間を置いて再試行し、結果が出たらこの記事を更新します。</p></blockquote>
 
-    <h2>VERDICT</h2>
+    <h2>判定</h2>
     <div class="verdict"><p><b>急いで要点だけ欲しいならClaude。</b>約5秒で返ってきて、要点も具体例も残っていました。<b>要点をひと目で見返したいならChatGPT。</b>①〜④の箇条書きで、200字ぴったりに近い198字にまとめています。ただし具体例は省略されるので、元の文章のニュアンスまでは残りません。どちらも無料枠で試せます。Geminiは検証でき次第、結果を追加します。</p></div>
 
-    <h2>NOTES</h2>
+    <h2>注記</h2>
     <ul>
       <li><b>再現性：</b>課題文と指示はこの記事の通り公開しています。同じ条件で試せば、同じ傾向が出るか確認できます。</li>
       <li><b>変動：</b>AIのモデルや無料枠の仕様は変わります。料金プランや上限は各社の公式ページで確認してください（この記事では価格を断定しません）。</li>
@@ -128,7 +128,7 @@
   </main>
 
   <footer>
-    <p>© WorkTool_LABO editorial dept. ｜ <a href="index.html#pr">広告について</a> ｜ <a href="privacy.html">プライバシーポリシー</a> ｜ <a href="https://www.youtube.com/@worktoollabo" target="_blank" rel="noopener">お問い合わせ（YouTube）</a></p>
+    <p>© ワークツール試し隊 編集部 ｜ <a href="index.html#pr">広告について</a> ｜ <a href="privacy.html">プライバシーポリシー</a> ｜ <a href="https://www.youtube.com/@worktoollabo" target="_blank" rel="noopener">お問い合わせ（YouTube）</a></p>
   </footer>
 </div>
 </body>
