@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>モニターライトバーは必要か？通常のデスクライトと比べて分かった向き不向き｜ワークツール試し隊</title>
+<meta name="description" content="モニターライトバーと通常のデスクライトの違いを、映り込み・置き場所・照らせる範囲で比較。買う前に確認すべき4点チェック表と、Quntis 52cmの仕様を公式情報で整理しました。">
+<style>
+  :root{
+    --bg:#f3f7fc; --surface:#ffffff; --line:#dcebf5;
+    --ink:#17334d; --muted:#5d7285; --blue:#0284c7; --sky:#0ea5e9; --cyan:#06b6d4; --accent:#f97316; --green:#16a34a;
+    --shadow:0 10px 30px rgba(2,132,199,.10);
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);line-height:1.9;
+    font-family:system-ui,-apple-system,"Hiragino Sans","Noto Sans JP",sans-serif;}
+  .wrap{max-width:860px;margin:0 auto;padding:0 20px}
+  header.top{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);margin:0 -20px;padding:12px 20px;
+    display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+  .logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.05rem}
+  .logo .mark{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:12px;
+    background:linear-gradient(135deg,var(--sky),var(--cyan));color:#fff;font-weight:900;font-size:1.1rem;
+    box-shadow:0 6px 16px rgba(14,165,233,.35)}
+  .logo .sub{display:block;font-size:.68rem;font-weight:700;letter-spacing:.14em;color:var(--muted);line-height:1.2}
+  .logo a{color:var(--ink);text-decoration:none;display:flex;align-items:center;gap:10px}
+  nav{display:flex;align-items:center;flex-wrap:wrap}
+  nav a{color:var(--muted);text-decoration:none;margin-left:18px;font-size:.9rem;font-weight:700}
+  nav a:hover{color:var(--blue)}
+  nav a.yt{margin-left:20px;background:linear-gradient(90deg,#ef4444,#dc2626);color:#fff;border-radius:999px;
+    padding:7px 16px;box-shadow:0 6px 16px rgba(220,38,38,.28)}
+  nav a.yt:hover{color:#fff;opacity:.92}
+  main{padding:36px 0}
+  .badge{display:inline-block;font-size:.78rem;font-weight:800;letter-spacing:.08em;color:#fff;
+    background:linear-gradient(90deg,var(--accent),#facc15);border-radius:999px;padding:6px 14px;margin-bottom:18px;
+    box-shadow:0 6px 14px rgba(249,115,22,.30)}
+  h1{font-size:1.9rem;line-height:1.4;margin:0 0 10px;font-weight:900}
+  .meta{font-size:.85rem;font-weight:700;color:#ea580c;margin-bottom:24px}
+  .notice{background:#fff7ed;border:1px solid #fed7aa;border-left:5px solid var(--accent);border-radius:14px;padding:18px 22px;color:var(--muted);font-size:.92rem;margin:0 0 28px}
+  .notice b{color:var(--ink)}
+  h2{font-size:1.25rem;font-weight:900;letter-spacing:.04em;color:var(--ink);margin:46px 0 16px;display:flex;align-items:center;gap:10px}
+  h2::before{content:"";width:10px;height:24px;border-radius:6px;background:linear-gradient(180deg,var(--accent),#facc15)}
+  h3{font-size:1.1rem;margin:24px 0 8px}
+  p{margin:0 0 16px}
+  .panel{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:26px;margin:0 0 14px;box-shadow:var(--shadow)}
+  .panel p:last-child{margin-bottom:0}
+  .tscroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0 0 18px;background:var(--surface);
+    border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow)}
+  table{width:100%;min-width:680px;border-collapse:collapse;font-size:.95rem;line-height:1.7}
+  th,td{border-bottom:1px solid var(--line);padding:14px 16px;text-align:left;vertical-align:top}
+  th{white-space:nowrap}
+  td:first-child{white-space:nowrap}
+  tr:last-child td{border-bottom:none}
+  th{background:#ffedd5;color:#9a3412;font-weight:800}
+  td .num{color:#ea580c;font-weight:800}
+  .verdict{background:#f0fdf4;border:2px dashed #86efac;border-radius:16px;padding:20px 24px;margin:0 0 14px}
+  .verdict b{color:var(--green)}
+  ul{margin:0 0 14px;padding-left:22px;color:var(--muted)}
+  li{margin-bottom:6px}
+  li b{color:var(--ink)}
+  .afflink{display:inline-block;background:linear-gradient(90deg,#f97316,#ef4444);color:#fff;font-weight:800;border-radius:999px;padding:14px 28px;text-decoration:none;margin:6px 0 14px;box-shadow:0 10px 22px rgba(249,115,22,.35)}
+  .afflink:hover{opacity:.92}
+  .product-fig{margin:0 0 20px;background:linear-gradient(135deg,#e0f2fe,#ecfeff 60%,#fff7ed);
+    border:1px solid var(--line);border-radius:18px;padding:24px 24px 16px;box-shadow:var(--shadow)}
+  .product-fig svg{display:block;width:100%;height:auto}
+  .product-fig figcaption{margin-top:12px;font-size:.82rem;line-height:1.6;color:var(--muted);text-align:center}
+  .back{margin-top:40px;padding-top:20px;border-top:1px solid var(--line)}
+  .back a{display:inline-block;color:var(--blue);text-decoration:none;font-weight:800;font-size:.9rem;background:#fff;border:2px solid #7dd3fc;border-radius:999px;padding:8px 18px}
+  footer{border-top:1px solid var(--line);margin-top:32px;padding:26px 0 40px;color:var(--muted);font-size:.85rem}
+  footer a{color:var(--blue);text-decoration:none}
+  @media(max-width:560px){h1{font-size:1.5rem}nav a{margin-left:12px}.panel{padding:20px}.notice{padding:16px 18px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="logo"><a href="index.html"><span class="mark">W</span><span>ワークツール試し隊<span class="sub">ワークツールラボ</span></span></a></div>
+    <nav><a href="index.html#reviews">検証記事</a><a href="index.html#pr">PR</a><a class="yt" href="https://www.youtube.com/@worktoollabo" target="_blank" rel="noopener">YouTube</a></nav>
+  </header>
+
+  <main>
+    <span class="badge">第4弾</span>
+    <h1>モニターライトバーは必要か？通常のデスクライトと比べて分かった向き不向き</h1>
+    <p class="meta">第4弾 / デスクガジェット / 仕様確認日：2026-11-23</p>
+
+    <p class="notice"><b>#PR 開示：</b>この記事にはアフィリエイトリンク（楽天市場）が含まれます。リンク先で購入があった場合、当メディアに報酬が発生することがあります。報酬の有無で評価を変えることはありません。なお、この記事は「比較ガイド」です。紹介する商品の現物を手元で試用したレビューではありません。仕様は楽天商品ページの公開情報をもとに整理しています（確認日：2026-11-23）。価格は変動するため、この記事では断定しません。購入前にリンク先の表示でご確認ください。</p>
+
+    <h2>結論</h2>
+    <div class="panel">
+      <p><b>結論：</b>画面中心の作業ならモニターライトバー、紙を広げて書く・細かい手作業が多いなら通常のデスクライトです。モニターライトバーの価値は「画面に光を映り込ませずに手元を明るくする」ことと「天板に台座を置かない」ことの2つです。夜、部屋の照明だけではキーボードのあたりが暗く、デスクライトを点けると画面に映り込む——その悩みに当てはまる人に向いています。両方の作業があるなら、ライトバーを主にして、部分的にデスクライトを足す組み合わせが現実的です。</p>
+    </div>
+
+    <h2>デスクライトとの違い</h2>
+    <p>違いは、光が画面に映り込みにくいことと、天板を占有しないことの2つに集約されます。</p>
+    <div class="tscroll">
+    <table>
+      <colgroup><col style="width:22%"><col style="width:39%"><col style="width:39%"></colgroup>
+      <tr><th>比べる点</th><th>モニターライトバー</th><th>通常のデスクライト</th></tr>
+      <tr><td><b>置き場所</b></td><td>モニターの上端（天板を使わない）</td><td>天板に台座を置く、またはクランプで固定</td></tr>
+      <tr><td><b>光の向き</b></td><td>画面を避けて手前のデスク面へ</td><td>アームで自由に向けられる</td></tr>
+      <tr><td><b>映り込み</b></td><td>配光の設計で起きにくい</td><td>角度によっては画面に映り込む</td></tr>
+      <tr><td><b>照らせる範囲</b></td><td>画面の手前、横長の範囲</td><td>紙の書類や手作業など、狙った場所</td></tr>
+      <tr><td><b>向かない使い方</b></td><td>紙を広げる作業、画面から遠い場所</td><td>画面中心の作業で、置き場所が限られる場合</td></tr>
+    </table>
+    </div>
+    <p>映り込みが起きるのは、ライトの光が画面の表面で反射し、その反射光が目に入る位置関係になったときです。モニターライトバーは光源を画面の真上に置き、光を斜め下の手前方向へだけ出すことで、この位置関係を避けています。</p>
+
+    <h2>効く理由</h2>
+    <p>厚生労働省の「情報機器作業における労働衛生管理のためのガイドライン」は、ディスプレイを使う作業では書類上とキーボード上の照度を300ルクス以上にすること、画面や書類、キーボード面と周辺との明るさの差をなるべく小さくすること、視野内のまぶしさ（グレア）を防ぐことを求めています。画面への映り込みも、目の疲れの原因として挙げられています。</p>
+    <p>この指針に照らすと、モニターライトバーに期待できるのは、天井照明だけでは暗い手元の照度を上げること、画面とデスク面の明るさの差を小さくすること、そして配光の設計で映り込みやまぶしさを抑えやすいことです。いずれも「作業環境を整える」効果であり、目の病気を防いだり、視力を回復させたりするものではありません。「目にやさしい」という宣伝文句は、この範囲で読むのが安全です。</p>
+
+    <h2>買う前チェック</h2>
+    <p>買う前に、自分の環境でこの4点を確認してください。1つでも合わないと、取り付けられない・点かない原因になります。</p>
+    <div class="tscroll">
+    <table>
+      <colgroup><col style="width:26%"><col style="width:37%"><col style="width:37%"></colgroup>
+      <tr><th>チェック項目</th><th>確認方法</th><th>合わないとどうなるか</th></tr>
+      <tr><td><span class="num">1. モニター上端の厚み</span></td><td>モニター上端の厚さを測り、ライトバーの対応範囲内か見る（例：Quntis 52cmは0.7〜3.5cm）</td><td>厚すぎ・薄すぎると掛からない・ぐらつく。曲面モニターやベゼルの出っ張りも要確認</td></tr>
+      <tr><td><span class="num">2. バーの長さとモニター幅</span></td><td>モニターの横幅に合う長さを選ぶ。目安は24インチ前後なら40cm級、27インチ以上やウルトラワイドなら50cm級</td><td>短すぎると手元の左右が暗く落ちる。長すぎるとはみ出して見た目が悪くなる</td></tr>
+      <tr><td><span class="num">3. ウェブカメラとの干渉</span></td><td>モニター上端に外付けカメラを載せている場合、ライトがカメラをふさがないか確認する</td><td>カメラの画角にバーが入り込む、カメラが取り付けられなくなる</td></tr>
+      <tr><td><span class="num">4. USB給電の口</span></td><td>USB 5V・1Aの給電口があるか確認する（例：Quntis 52cmはUSB Type-C、DC 5V-1A）</td><td>出力の合わない充電器では点かないことがある（購入者レビューにも同様の報告あり）。PCのUSB端子か、合う出力の充電器を用意する</td></tr>
+    </table>
+    </div>
+
+    <h2>商品の例</h2>
+    <h3>Quntis モニターライトバー 52cm（Nuoshilan store）</h3>
+    <p>27インチ以上の広いモニターに向いたタイプの例として、仕様を整理します。演色性Ra95と自動調光が特徴です。</p>
+    <figure class="product-fig">
+      <svg viewBox="0 0 640 300" role="img" aria-label="モニターの上にライトバーを載せ、手元を照らすイメージ図">
+        <defs>
+          <linearGradient id="deskGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e0f2fe"/><stop offset="1" stop-color="#fff7ed"/></linearGradient>
+          <linearGradient id="beamGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fde68a" stop-opacity="0.85"/><stop offset="1" stop-color="#fde68a" stop-opacity="0.05"/></linearGradient>
+        </defs>
+        <rect x="0" y="0" width="640" height="300" rx="16" fill="url(#deskGrad)"/>
+        <rect x="120" y="60" width="400" height="130" rx="10" fill="#17334d"/>
+        <rect x="132" y="72" width="376" height="106" rx="6" fill="#0ea5e9" opacity="0.85"/>
+        <text x="320" y="132" text-anchor="middle" font-size="22" font-weight="bold" fill="#ffffff" font-family="sans-serif">モニター</text>
+        <rect x="300" y="190" width="40" height="34" fill="#17334d"/>
+        <rect x="240" y="224" width="160" height="10" rx="5" fill="#17334d"/>
+        <rect x="130" y="44" width="380" height="16" rx="8" fill="#f97316"/>
+        <circle cx="150" cy="52" r="4" fill="#fff7ed"/><circle cx="200" cy="52" r="4" fill="#fff7ed"/><circle cx="250" cy="52" r="4" fill="#fff7ed"/><circle cx="300" cy="52" r="4" fill="#fff7ed"/><circle cx="350" cy="52" r="4" fill="#fff7ed"/><circle cx="400" cy="52" r="4" fill="#fff7ed"/><circle cx="450" cy="52" r="4" fill="#fff7ed"/><circle cx="490" cy="52" r="4" fill="#fff7ed"/>
+        <polygon points="150,60 110,250 190,250" fill="url(#beamGrad)"/>
+        <polygon points="320,60 280,250 360,250" fill="url(#beamGrad)"/>
+        <polygon points="490,60 450,250 530,250" fill="url(#beamGrad)"/>
+        <rect x="90" y="250" width="460" height="12" rx="6" fill="#94a3b8"/>
+        <rect x="180" y="238" width="120" height="12" rx="6" fill="#5d7285"/>
+        <text x="320" y="288" text-anchor="middle" font-size="15" fill="#5d7285" font-family="sans-serif">光は画面を避けて手前のデスク面へ（イメージ）</text>
+      </svg>
+      <figcaption>イラスト（イメージ）：モニター上端に載せたライトバーが手元を照らす様子。実際の商品（Quntis モニターライトバー 52cm）の写真ではありません。</figcaption>
+    </figure>
+    <div class="tscroll">
+    <table>
+      <colgroup><col style="width:24%"><col style="width:76%"></colgroup>
+      <tr><th>項目</th><th>仕様（楽天商品ページより、2026-11-23確認）</th></tr>
+      <tr><td>商品番号</td><td>LI-HY-0206-BK-QU-WS（Nuoshilan store）</td></tr>
+      <tr><td>幅</td><td><span class="num">52cm</span>（本体寸法 約4.5×52×4cm、重量約600g）</td></tr>
+      <tr><td>演色性</td><td><span class="num">Ra95</span>（100個のLEDチップ搭載）</td></tr>
+      <tr><td>色温度</td><td><span class="num">3000K〜6500K</span>（無段階調整）。3段階調色は昼白色6400K／昼光色4200K／電球色3100K</td></tr>
+      <tr><td>調光</td><td>自動調光あり（周囲の明るさを感知し自動調整）。輝度は無段階 <span class="num">5%〜100%</span></td></tr>
+      <tr><td>電源</td><td>USB Type-C給電（DC 5V-1A、最大5W）。PCやモバイルバッテリーから給電可能との記載</td></tr>
+      <tr><td>対応モニター厚み</td><td><span class="num">0.7〜3.5cm</span>のモニターに対応</td></tr>
+      <tr><td>配光・その他</td><td>反射光を抑えた45°の設計、ブルーライトカット対応、合金鋼シェード</td></tr>
+      <tr><td>レビュー</td><td>総合評価4.38（16件、2026-11-23確認時点）</td></tr>
+    </table>
+    </div>
+    <p>52cmという長さは、27インチ以上のモニターやウルトラワイドで手元の左右まで光が届く構成です。24インチ前後のモニターなら、同じシリーズの40cm級のほうが収まりがよくなります。</p>
+    <a class="afflink" href="https://hb.afl.rakuten.co.jp/ichiba/59c9683b.bc2fdc8a.59c9683c.70170620/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fnuoshilan%2Fli-hy-0206-bk-qu-ws%2F" target="_blank" rel="noopener sponsored">#PR 楽天市場で Quntis モニターライトバー 52cm を見る（Nuoshilan store）</a>
+    <p>価格は変動します。リンク先の表示価格をご確認ください。なお、確認時（2026-11-23）の参考表示は5,680円（税込・送料無料）で、15%OFFクーポンとポイント2倍の表示がありましたが、現在の価格・クーポンの有無ではありません。</p>
+
+    <h2>判定</h2>
+    <div class="verdict"><p><b>画面中心の作業ならモニターライトバー。</b>夜のデスクで「手元が暗いのに画面に映り込みたくない」という悩みがあるなら、配光の設計がそのまま答えになります。<b>紙を広げる作業や手作業が多いなら通常のデスクライト。</b>光を自由に向けられるほうが、そちらには合います。<b>買う前は上の4点チェック。</b>とくにモニター上端の厚みとUSB給電の口は、合わないとそもそも使えません。</p></div>
+
+    <h2>注記</h2>
+    <ul>
+      <li><b>試用なし：</b>この記事は公開仕様にもとづく比較ガイドです。現物を手元で使ったレビューではありません。明るさの感じ方や映り込みの出方は、部屋の照明やモニターの表面処理で変わります。</li>
+      <li><b>未確認の仕様：</b>商品ページに対応インチ数の明記はありません（厚みのみの記載）。付属品の一覧・USBケーブルの同梱有無と長さ・保証期間の記載もありませんでした。購入前に商品ページでご確認ください。なお、購入者レビューに34インチのウルトラワイドモニターで使用した例がありましたが、仕様としての保証ではありません。</li>
+      <li><b>カラー表記の食い違い：</b>商品ページ内で、商品仕様欄の「代表カラー」はグレー、商品紹介欄の「シェードカラー」はブラックと表記が異なっていました。色は購入前に商品ページでご確認ください。</li>
+      <li><b>価格の変動：</b>価格は時期や店舗で変わります。この記事では価格を断定しません。購入前にリンク先でご確認ください。</li>
+      <li><b>仕様の変動：</b>メーカーの仕様は予告なく変更されることがあります。最終的には商品ページの表示をご確認ください。</li>
+    </ul>
+
+    <div class="back"><a href="index.html">&lt; ワークツール試し隊トップへ戻る</a></div>
+  </main>
+
+  <footer>
+    <p>© ワークツール試し隊 編集部 ｜ <a href="index.html#pr">広告について</a> ｜ <a href="privacy.html">プライバシーポリシー</a> ｜ <a href="https://www.youtube.com/@worktoollabo" target="_blank" rel="noopener">お問い合わせ（YouTube）</a></p>
+  </footer>
+</div>
+</body>
+</html>
