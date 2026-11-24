@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>続くタスク管理ツールの条件：無料3サービスを「入力の速さ」で比較｜ワークツール試し隊</title>
+<meta name="description" content="Google Tasks・Todoist・TickTickの無料プランで、同じタスクに明日の期限を付けるまでの速さを実際に測りました。所要時間・手順・リマインダーの違いを表で比較し、続く条件3つを整理しています。">
+<style>
+  :root{
+    --bg:#f3f7fc; --surface:#ffffff; --line:#dcebf5;
+    --ink:#17334d; --muted:#5d7285; --blue:#0284c7; --sky:#0ea5e9; --cyan:#06b6d4; --accent:#f97316; --green:#16a34a;
+    --shadow:0 10px 30px rgba(2,132,199,.10);
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);line-height:1.9;
+    font-family:system-ui,-apple-system,"Hiragino Sans","Noto Sans JP",sans-serif;}
+  .wrap{max-width:860px;margin:0 auto;padding:0 20px}
+  header.top{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);margin:0 -20px;padding:12px 20px;
+    display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+  .logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.05rem}
+  .logo .mark{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:12px;
+    background:linear-gradient(135deg,var(--sky),var(--cyan));color:#fff;font-weight:900;font-size:1.1rem;
+    box-shadow:0 6px 16px rgba(14,165,233,.35)}
+  .logo .sub{display:block;font-size:.68rem;font-weight:700;letter-spacing:.14em;color:var(--muted);line-height:1.2}
+  .logo a{color:var(--ink);text-decoration:none;display:flex;align-items:center;gap:10px}
+  nav{display:flex;align-items:center;flex-wrap:wrap}
+  nav a{color:var(--muted);text-decoration:none;margin-left:18px;font-size:.9rem;font-weight:700}
+  nav a:hover{color:var(--blue)}
+  nav a.yt{margin-left:20px;background:linear-gradient(90deg,#ef4444,#dc2626);color:#fff;border-radius:999px;
+    padding:7px 16px;box-shadow:0 6px 16px rgba(220,38,38,.28)}
+  nav a.yt:hover{color:#fff;opacity:.92}
+  main{padding:36px 0}
+  .badge{display:inline-block;font-size:.78rem;font-weight:800;letter-spacing:.08em;color:#fff;
+    background:linear-gradient(90deg,var(--accent),#facc15);border-radius:999px;padding:6px 14px;margin-bottom:18px;
+    box-shadow:0 6px 14px rgba(249,115,22,.30)}
+  h1{font-size:1.9rem;line-height:1.4;margin:0 0 10px;font-weight:900}
+  .meta{font-size:.85rem;font-weight:700;color:#ea580c;margin-bottom:24px}
+  .notice{background:#fff7ed;border:1px solid #fed7aa;border-left:5px solid var(--accent);border-radius:14px;padding:18px 22px;color:var(--muted);font-size:.92rem;margin:0 0 28px}
+  .notice b{color:var(--ink)}
+  h2{font-size:1.25rem;font-weight:900;letter-spacing:.04em;color:var(--ink);margin:46px 0 16px;display:flex;align-items:center;gap:10px}
+  h2::before{content:"";width:10px;height:24px;border-radius:6px;background:linear-gradient(180deg,var(--accent),#facc15)}
+  h3{font-size:1.1rem;margin:24px 0 8px}
+  p{margin:0 0 16px}
+  .panel{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:26px;margin:0 0 14px;box-shadow:var(--shadow)}
+  .panel p:last-child{margin-bottom:0}
+  .tscroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0 0 18px;background:var(--surface);
+    border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow)}
+  table{width:100%;min-width:680px;border-collapse:collapse;font-size:.95rem;line-height:1.7}
+  th,td{border-bottom:1px solid var(--line);padding:14px 16px;text-align:left;vertical-align:top}
+  th{white-space:nowrap}
+  td:first-child{white-space:nowrap}
+  tr:last-child td{border-bottom:none}
+  th{background:#ffedd5;color:#9a3412;font-weight:800}
+  td .num{color:#ea580c;font-weight:800}
+  .verdict{background:#f0fdf4;border:2px dashed #86efac;border-radius:16px;padding:20px 24px;margin:0 0 14px}
+  .verdict b{color:var(--green)}
+  ul{margin:0 0 14px;padding-left:22px;color:var(--muted)}
+  li{margin-bottom:6px}
+  li b{color:var(--ink)}
+  .back{margin-top:40px;padding-top:20px;border-top:1px solid var(--line)}
+  .back a{display:inline-block;color:var(--blue);text-decoration:none;font-weight:800;font-size:.9rem;background:#fff;border:2px solid #7dd3fc;border-radius:999px;padding:8px 18px}
+  footer{border-top:1px solid var(--line);margin-top:32px;padding:26px 0 40px;color:var(--muted);font-size:.85rem}
+  footer a{color:var(--blue);text-decoration:none}
+  @media(max-width:560px){h1{font-size:1.5rem}nav a{margin-left:12px}.panel{padding:20px}.notice{padding:16px 18px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="logo"><a href="index.html"><span class="mark">W</span><span>ワークツール試し隊<span class="sub">ワークツールラボ</span></span></a></div>
+    <nav><a href="index.html#reviews">検証記事</a><a href="index.html#pr">PR</a><a class="yt" href="https://www.youtube.com/@worktoollabo" target="_blank" rel="noopener">YouTube</a></nav>
+  </header>
+
+  <main>
+    <span class="badge">第5弾</span>
+    <h1>続くタスク管理ツールの条件：無料3サービスを「入力の速さ」で比較</h1>
+    <p class="meta">第5弾 / 仕事効率化サービス / 実測日：2026-11-24</p>
+
+    <p class="notice"><b>開示：</b>この記事にはアフィリエイトリンクは含まれていません。Google Tasks・Todoist・TickTickの無料プランを、実際にブラウザで使って比較した検証記事です。同じ操作「タスク『請求書を送る』を作り、期限を明日に設定する」までの所要時間と手順を測りました（実測日：2026-11-24）。有料プランへの登録・課金はしていません。Todoist・TickTickは作業用Googleアカウントで新規サインアップして試しています。</p>
+
+    <h2>結論</h2>
+    <div class="panel">
+      <p><b>結論：</b>タスク管理が続かない理由は、意志の弱さではなく「入れるのに手間がかかる」ことです。思いついた瞬間に入れられなければ、頭の中のタスクは消えていきます。だから比べるのは機能の多さではなく、入力の速さです。実測では、Google Tasksが5〜10秒で最速、TodoistとTickTickが10〜15秒でした。ただし速さだけが答えではありません。期限当日に思い出させてくれるリマインダーは、無料プランではTickTickが一番手厚く、Google Tasksは画面からは確認できませんでした。「とにかく速く入れたい」ならGoogle Tasks、「期限当日に通知してほしい」ならTickTick、「プロジェクトごとに整理したい」ならTodoist、という分かれ方です。</p>
+    </div>
+
+    <h2>続く条件3つ</h2>
+    <p>タスク管理が続くかどうかは、この3つでほぼ決まります。</p>
+    <div class="tscroll">
+    <table>
+      <colgroup><col style="width:26%"><col style="width:74%"></colgroup>
+      <tr><th>条件</th><th>なぜ大事か</th></tr>
+      <tr><td><span class="num">1. 思いついたらすぐ入れられる</span></td><td>入力に手間がかかると、思いついた瞬間に「あとで入れよう」となり、そのまま忘れます。開く→入れる、が短いほど続きます</td></tr>
+      <tr><td><span class="num">2. 期限がワンタップで付けられる</span></td><td>期限のないタスクは「いつかやる」になり、溜まっていきます。「明日」「来週」のようなプリセットがあると、期限付けが習慣になります</td></tr>
+      <tr><td><span class="num">3. 期限当日に思い出させてくれる</span></td><td>入れただけでは、見る習慣がないと忘れます。期限当日の通知があると、タスクが「やること」として目に入ります</td></tr>
+    </table>
+    </div>
+    <p>この3つを軸に、無料3サービスを同じ操作で測りました。</p>
+
+    <h2>実測結果</h2>
+    <p>測った操作は、3サービスとも同じです。タスク「請求書を送る」を作り、期限を明日（2026年11月25日）に設定するまで。所要時間は人間が操作した場合の目安で、各サービス1回のみの計測です。</p>
+    <div class="tscroll">
+    <table>
+      <colgroup><col style="width:16%"><col style="width:14%"><col style="width:26%"><col style="width:22%"><col style="width:22%"></colgroup>
+      <tr><th>サービス</th><th>所要時間の目安</th><th>手順</th><th>期限の付け方</th><th>リマインダー（無料プラン）</th></tr>
+      <tr><td><b>Google Tasks</b></td><td><span class="num">5〜10秒</span></td><td>「タスクを追加」→入力→タスク直下の「明日」ボタン。クリック2回＋入力。保存ボタン不要</td><td>「明日」「来週」などのプリセットボタン＋カレンダーピッカー。タイトル欄への自然言語による日付解析はなし</td><td>詳細画面に通知・リマインダーの設定項目は見当たらず。画面からは無料で使えるリマインダーは確認できなかった</td></tr>
+      <tr><td><b>Todoist</b></td><td><span class="num">10〜15秒</span></td><td>「Add task」→入力→「Date」→ピッカーで「Tomorrow」→「Add task」で保存。クリック4回＋入力</td><td>カレンダーピッカー中心。「Tomorrow」「Next week」などのプリセットと「Type a date」欄あり。自然言語入力は案内パネルに英語の例あり。日本語「明日」の解析は未検証</td><td>詳細画面に「Reminders」あり。「Before task」タブは開けたが、「Date &amp; time」タブ・「Deadline」「Location」にはProマークあり。実際の通知の到達は未検証</td></tr>
+      <tr><td><b>TickTick</b></td><td><span class="num">10〜15秒</span></td><td>「+ Add task」欄→入力→カレンダーアイコン→カレンダーで「25」を選択→「OK」→Enterで保存。クリック4回＋Enter＋入力</td><td>カレンダーピッカー。ピッカー上部に「今日・明日」などのクイックアイコンあり。自然言語処理はトップページに記載あり。日本語での解析は未検証</td><td>日付ピッカー内の「Reminder」から「On the day（09:00）」「1 day early」などが選べ、有料マークは付いていなかった。「Constant Reminder」だけPremiumマーク付き。実際の通知の到達は未検証</td></tr>
+    </table>
+    </div>
+
+    <h2>サービスごとの向き不向き</h2>
+    <h3>Google Tasks — とにかく速く入れたい人</h3>
+    <p>入力欄と「明日」ボタンが同じ場所に並び、保存操作が不要なため、3つの中で最速でした。Googleのサービスと一緒に使う人には、追加のアプリを入れずに済む手軽さもあります。反対に、無料プランで使えるリマインダーは画面からは確認できませんでした。「入れる」ことには強いが、「思い出させる」ことは弱い、という位置づけです。</p>
+    <h3>Todoist — プロジェクトごとに整理したい人</h3>
+    <p>日付を選んで最後に保存を押すため、Google Tasksより2クリック多く、保存し忘れるとタスクが残らない点には注意が必要です。ただ、プロジェクトやラベルで整理する機能が豊富で、仕事のタスクを育てていく使い方に向いています。リマインダーは「Before task」までは開けましたが、日時指定のリマインダーにはProマークがありました。</p>
+    <h3>TickTick — 期限当日に通知してほしい人</h3>
+    <p>日付を選んで「OK」、さらにEnterで保存する2段構えで、3つの中で最も手順が多く感じました。ただしEnterだけで保存できるのはキーボード派には速い面もあります。リマインダーは無料でも選べる項目が多く、「On the day（09:00）」や「1 day early」などに有料マークは付いていませんでした。3つの中で、無料プランのリマインダーが一番手厚い、という結果です。</p>
+
+    <h2>判定</h2>
+    <div class="verdict"><p><b>「とにかく速く入れたい」ならGoogle Tasks。</b>5〜10秒で、保存ボタンもいりません。<b>「期限当日に通知してほしい」ならTickTick。</b>無料でもリマインダーの選択肢が多く、手順は多めですがEnterで保存できます。<b>「プロジェクトごとに整理したい」ならTodoist。</b>整理機能が豊富で、日時指定のリマインダーは有料プランの範囲です。<b>どれも無料で始められます。</b>まず1週間、思いついたタスクをその場で入れてみてください。続いたものが、あなたのツールです。</p></div>
+
+    <h2>注記</h2>
+    <ul>
+      <li><b>計測は1回のみ：</b>所要時間は各サービス1回のみの計測で、目安です。繰り返し測定はしていません。操作の慣れや通信状況で変わります。</li>
+      <li><b>リマインダーは画面表示のみ：</b>リマインダーの有無は、画面に表示された設定項目で確認した範囲です。実際に通知が届くかまでは検証していません。</li>
+      <li><b>自然言語入力は未検証：</b>Todoist・TickTickとも自然言語での日付入力に関する記載はありましたが、今回はピッカーで設定したため、日本語での解析は検証していません。</li>
+      <li><b>無料プランの範囲：</b>この記事の比較は、すべて無料プランの範囲です。有料プランの機能は紹介していません。仕様は予告なく変更されることがあります。</li>
+      <li><b>スマホ・PC両対応：</b>計測はPCブラウザのみです。Todoist・TickTickのトップページには、Windows・macOS・Android・iOS・Webなど各プラットフォーム対応の記載がありました。Google Tasksは、今回開いた画面では対応端末の一覧は確認できませんでした。</li>
+    </ul>
+
+    <div class="back"><a href="index.html">&lt; ワークツール試し隊トップへ戻る</a></div>
+  </main>
+
+  <footer>
+    <p>© ワークツール試し隊 編集部 ｜ <a href="index.html#pr">広告について</a> ｜ <a href="privacy.html">プライバシーポリシー</a> ｜ <a href="https://www.youtube.com/@worktoollabo" target="_blank" rel="noopener">お問い合わせ（YouTube）</a></p>
+  </footer>
+</div>
+</body>
+</html>

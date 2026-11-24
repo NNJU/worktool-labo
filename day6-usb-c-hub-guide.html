@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>USB-Cハブの失敗しない選び方：4K/60Hz・PD給電・自分のPC対応チェック表｜ワークツール試し隊</title>
+<meta name="description" content="USB-Cハブ選びで失敗しやすい3点（4Kのリフレッシュレート、PD給電のW数、PC側の映像出力対応）を整理。買う前チェック5点と、UGREEN Revodok 6-in-1（4K@60Hz・PD100W）の仕様を公式情報でまとめました。">
+<style>
+  :root{
+    --bg:#f3f7fc; --surface:#ffffff; --line:#dcebf5;
+    --ink:#17334d; --muted:#5d7285; --blue:#0284c7; --sky:#0ea5e9; --cyan:#06b6d4; --accent:#f97316; --green:#16a34a;
+    --shadow:0 10px 30px rgba(2,132,199,.10);
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);line-height:1.9;
+    font-family:system-ui,-apple-system,"Hiragino Sans","Noto Sans JP",sans-serif;}
+  .wrap{max-width:860px;margin:0 auto;padding:0 20px}
+  header.top{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);margin:0 -20px;padding:12px 20px;
+    display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+  .logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.05rem}
+  .logo .mark{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:12px;
+    background:linear-gradient(135deg,var(--sky),var(--cyan));color:#fff;font-weight:900;font-size:1.1rem;
+    box-shadow:0 6px 16px rgba(14,165,233,.35)}
+  .logo .sub{display:block;font-size:.68rem;font-weight:700;letter-spacing:.14em;color:var(--muted);line-height:1.2}
+  .logo a{color:var(--ink);text-decoration:none;display:flex;align-items:center;gap:10px}
+  nav{display:flex;align-items:center;flex-wrap:wrap}
+  nav a{color:var(--muted);text-decoration:none;margin-left:18px;font-size:.9rem;font-weight:700}
+  nav a:hover{color:var(--blue)}
+  nav a.yt{margin-left:20px;background:linear-gradient(90deg,#ef4444,#dc2626);color:#fff;border-radius:999px;
+    padding:7px 16px;box-shadow:0 6px 16px rgba(220,38,38,.28)}
+  nav a.yt:hover{color:#fff;opacity:.92}
+  main{padding:36px 0}
+  .badge{display:inline-block;font-size:.78rem;font-weight:800;letter-spacing:.08em;color:#fff;
+    background:linear-gradient(90deg,var(--accent),#facc15);border-radius:999px;padding:6px 14px;margin-bottom:18px;
+    box-shadow:0 6px 14px rgba(249,115,22,.30)}
+  h1{font-size:1.9rem;line-height:1.4;margin:0 0 10px;font-weight:900}
+  .meta{font-size:.85rem;font-weight:700;color:#ea580c;margin-bottom:24px}
+  .notice{background:#fff7ed;border:1px solid #fed7aa;border-left:5px solid var(--accent);border-radius:14px;padding:18px 22px;color:var(--muted);font-size:.92rem;margin:0 0 28px}
+  .notice b{color:var(--ink)}
+  h2{font-size:1.25rem;font-weight:900;letter-spacing:.04em;color:var(--ink);margin:46px 0 16px;display:flex;align-items:center;gap:10px}
+  h2::before{content:"";width:10px;height:24px;border-radius:6px;background:linear-gradient(180deg,var(--accent),#facc15)}
+  h3{font-size:1.1rem;margin:24px 0 8px}
+  p{margin:0 0 16px}
+  .panel{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:26px;margin:0 0 14px;box-shadow:var(--shadow)}
+  .panel p:last-child{margin-bottom:0}
+  .tscroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0 0 18px;background:var(--surface);
+    border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow)}
+  table{width:100%;min-width:680px;border-collapse:collapse;font-size:.95rem;line-height:1.7}
+  th,td{border-bottom:1px solid var(--line);padding:14px 16px;text-align:left;vertical-align:top}
+  th{white-space:nowrap}
+  td:first-child{white-space:nowrap}
+  tr:last-child td{border-bottom:none}
+  th{background:#ffedd5;color:#9a3412;font-weight:800}
+  td .num{color:#ea580c;font-weight:800}
+  .verdict{background:#f0fdf4;border:2px dashed #86efac;border-radius:16px;padding:20px 24px;margin:0 0 14px}
+  .verdict b{color:var(--green)}
+  ul{margin:0 0 14px;padding-left:22px;color:var(--muted)}
+  li{margin-bottom:6px}
+  li b{color:var(--ink)}
+  .afflink{display:inline-block;background:linear-gradient(90deg,#f97316,#ef4444);color:#fff;font-weight:800;border-radius:999px;padding:14px 28px;text-decoration:none;margin:6px 0 14px;box-shadow:0 10px 22px rgba(249,115,22,.35)}
+  .afflink:hover{opacity:.92}
+  .product-fig{margin:0 0 20px;background:linear-gradient(135deg,#e0f2fe,#ecfeff 60%,#fff7ed);
+    border:1px solid var(--line);border-radius:18px;padding:24px 24px 16px;box-shadow:var(--shadow)}
+  .product-fig svg{display:block;width:100%;height:auto}
+  .product-fig figcaption{margin-top:12px;font-size:.82rem;line-height:1.6;color:var(--muted);text-align:center}
+  .back{margin-top:40px;padding-top:20px;border-top:1px solid var(--line)}
+  .back a{display:inline-block;color:var(--blue);text-decoration:none;font-weight:800;font-size:.9rem;background:#fff;border:2px solid #7dd3fc;border-radius:999px;padding:8px 18px}
+  footer{border-top:1px solid var(--line);margin-top:32px;padding:26px 0 40px;color:var(--muted);font-size:.85rem}
+  footer a{color:var(--blue);text-decoration:none}
+  @media(max-width:560px){h1{font-size:1.5rem}nav a{margin-left:12px}.panel{padding:20px}.notice{padding:16px 18px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="logo"><a href="index.html"><span class="mark">W</span><span>ワークツール試し隊<span class="sub">ワークツールラボ</span></span></a></div>
+    <nav><a href="index.html#reviews">検証記事</a><a href="index.html#pr">PR</a><a class="yt" href="https://www.youtube.com/@worktoollabo" target="_blank" rel="noopener">YouTube</a></nav>
+  </header>
+
+  <main>
+    <span class="badge">第6弾</span>
+    <h1>USB-Cハブの失敗しない選び方：4K/60Hz・PD給電・自分のPC対応チェック表</h1>
+    <p class="meta">第6弾 / デスクガジェット / 仕様確認日：2026-11-24</p>
+
+    <p class="notice"><b>#PR 開示：</b>この記事にはアフィリエイトリンク（楽天市場）が含まれます。リンク先で購入があった場合、当メディアに報酬が発生することがあります。報酬の有無で評価を変えることはありません。なお、この記事は「選び方ガイド」です。紹介する商品の現物を手元で試用したレビューではありません。仕様は楽天商品ページとメーカー公式情報の公開情報をもとに整理しています（確認日：2026-11-24）。価格は変動するため、この記事では断定しません。購入前にリンク先の表示でご確認ください。</p>
+
+    <h2>結論</h2>
+    <div class="panel">
+      <p><b>結論：</b>ハブ選びで失敗する原因は、ほぼ3つに集約されます。「4K対応」のリフレッシュレート（30Hzか60Hzか）、PD給電の上限と充電器のW数、そしてPC側のUSB-Cポートが映像出力に対応しているかです。この3つを買う前に確認すれば、9割は失敗しません。安い順に選ぶと、まずリフレッシュレートでつまずきます。4Kモニターを60Hzで使いたいなら、仕様欄に「4K@60Hz」と明記されたものを選んでください。</p>
+    </div>
+
+    <h2>「4K対応」の落とし穴</h2>
+    <p>「4K対応」と書いてあっても、リフレッシュレートは2種類あります。同じ4K出力でも、30Hzのハブと60Hzのハブでは、画面のなめらかさが変わります。同じ価格帯のハブを比べると、4K@60Hzに対応しているのは少数派です。2026年11月23日時点の比較記事で取り上げられた5機種のうち、4K@60Hzに対応していたのは1機種だけでした。</p>
+    <div class="tscroll">
+    <table>
+      <colgroup><col style="width:22%"><col style="width:39%"><col style="width:39%"></colgroup>
+      <tr><th>比べる点</th><th>4K@60Hz対応</th><th>4K@30Hzまで</th></tr>
+      <tr><td><b>画面の動き</b></td><td>マウスの動きやスクロールがなめらか</td><td>マウスの動きがわずかにカクついて感じることがある</td></tr>
+      <tr><td><b>向いている使い方</b></td><td>外部モニターをメインに毎日使う人、動画やオンライン会議が多い人</td><td>資料表示が中心で、動きのなめらかさを気にしない人</td></tr>
+      <tr><td><b>価格帯の傾向</b></td><td>同じ価格帯では少数派で、やや高めに出ることが多い</td><td>安いハブの多くがこちら。価格だけ見ると選びやすい</td></tr>
+      <tr><td><b>確認方法</b></td><td>仕様欄に「4K@60Hz」「4K 60Hz」と明記されているか見る。「4K対応」だけでは分からない</td><td>「4K対応」とだけ書いてあり、Hzの記載がないものは30Hzまでのことが多い</td></tr>
+    </table>
+    </div>
+    <p>30Hzでも資料表示や文章作成には使えます。ただ、外部モニターをメイン画面として毎日使うなら、60Hz対応を選んだほうが後悔しにくい、というのが比較記事の結論です。なお、ケーブル側の規格によってはちらつきが出る場合がある、という注意書きのある商品もあります。</p>
+
+    <h2>給電のW数とPC側の対応</h2>
+    <p>ハブ選びの2つ目の落とし穴は給電です。PD100W対応と書いてあっても、実際にPCへ届く電力は、使う充電器の出力とハブの上限の両方で決まります。充電器が65Wなら、ハブが100W対応でも65Wまでしか届きません。ノートPCの付属充電器のW数と、ハブのPD上限を両方確認してください。</p>
+    <p>3つ目の落とし穴はPC側です。PCのUSB-Cポートが映像出力（DisplayPort Alt mode）に対応していないと、HDMIケーブルをつないでも画面は映りません。ハブのせいだと思って買い替えても、映らないままです。買う前に、自分のPCのUSB-Cポートの仕様を確認してください。古いPCや、充電専用のUSB-Cポートしかない機種では、映像が出ないことがあります。</p>
+
+    <h2>買う前チェック</h2>
+    <p>買う前に、自分の環境でこの5点を確認してください。1つでも合わないと、映らない・充電できない・ポートが足りない原因になります。</p>
+    <div class="tscroll">
+    <table>
+      <colgroup><col style="width:26%"><col style="width:37%"><col style="width:37%"></colgroup>
+      <tr><th>チェック項目</th><th>確認方法</th><th>合わないとどうなるか</th></tr>
+      <tr><td><span class="num">1. PCのUSB-Cが映像出力対応か</span></td><td>PCの仕様表でUSB-CポートがDisplayPort Alt mode（映像出力）に対応しているか見る</td><td>対応していないとHDMIをつないでも映らない。ハブを買い替えても直らない</td></tr>
+      <tr><td><span class="num">2. HDMIは4K60Hzか30Hzか</span></td><td>ハブの仕様欄に「4K@60Hz」と明記されているか見る。「4K対応」だけでは分からない</td><td>30Hzだとマウスの動きがわずかにカクつく。毎日使うメインモニターなら気になりやすい</td></tr>
+      <tr><td><span class="num">3. PDの上限と充電器のW数</span></td><td>ハブのPD上限（例：100W）と、手持ちの充電器の出力W数の両方を見る</td><td>充電器の出力が低いと、ハブの上限まで届かない。ノートPCの充電が追いつかないことがある</td></tr>
+      <tr><td><span class="num">4. ポートの種類と数、速度</span></td><td>USB-A・USB-Cの数と、転送速度（5Gbpsか10Gbpsか）を見る。データ用USB-Cが映像・充電に使えるかも確認する</td><td>外付けSSDなど高速転送したい機器が遅くなる。データ専用ポートに充電器をつないでも充電できない</td></tr>
+      <tr><td><span class="num">5. カードリーダーとLANが要るか</span></td><td>SDカードの読み込みや有線LANをよく使うか、自分の使い方で判断する</td><td>後から「付いていれば」と思っても、ハブ単体では増やせない。別途アダプタが必要になる</td></tr>
+    </table>
+    </div>
+
+    <h2>商品の例</h2>
+    <h3>UGREEN Revodok USB-C ハブ (6-in-1)（UGREEN公式楽天市場店）</h3>
+    <p>同じ価格帯では珍しく4K@60Hzに対応したタイプの例として、仕様を整理します。USB-C・USB-Aとも10Gbpsのポートが2つずつ、PD100Wのパススルー充電が特徴です。カードリーダーは付いていません。</p>
+    <figure class="product-fig">
+      <svg viewBox="0 0 640 300" role="img" aria-label="ノートPCにUSB-Cハブをつなぎ、モニターと充電器を広げるイメージ図">
+        <defs>
+          <linearGradient id="hubGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e0f2fe"/><stop offset="1" stop-color="#fff7ed"/></linearGradient>
+        </defs>
+        <rect x="0" y="0" width="640" height="300" rx="16" fill="url(#hubGrad)"/>
+        <rect x="90" y="90" width="200" height="130" rx="10" fill="#17334d"/>
+        <rect x="102" y="102" width="176" height="106" rx="6" fill="#0ea5e9" opacity="0.85"/>
+        <text x="190" y="162" text-anchor="middle" font-size="20" font-weight="bold" fill="#ffffff" font-family="sans-serif">ノートPC</text>
+        <rect x="150" y="220" width="80" height="10" rx="5" fill="#17334d"/>
+        <rect x="330" y="130" width="120" height="34" rx="8" fill="#f97316"/>
+        <circle cx="344" cy="147" r="4" fill="#fff7ed"/><circle cx="362" cy="147" r="4" fill="#fff7ed"/><circle cx="380" cy="147" r="4" fill="#fff7ed"/><circle cx="398" cy="147" r="4" fill="#fff7ed"/><circle cx="416" cy="147" r="4" fill="#fff7ed"/>
+        <text x="390" y="152" text-anchor="middle" font-size="13" font-weight="bold" fill="#ffffff" font-family="sans-serif">ハブ</text>
+        <line x1="290" y1="150" x2="330" y2="147" stroke="#5d7285" stroke-width="4"/>
+        <rect x="480" y="70" width="110" height="80" rx="10" fill="#17334d"/>
+        <rect x="490" y="80" width="90" height="60" rx="6" fill="#06b6d4" opacity="0.85"/>
+        <text x="535" y="116" text-anchor="middle" font-size="16" font-weight="bold" fill="#ffffff" font-family="sans-serif">4Kモニター</text>
+        <line x1="450" y1="130" x2="480" y2="115" stroke="#5d7285" stroke-width="4"/>
+        <rect x="490" y="180" width="90" height="46" rx="8" fill="#ffffff" stroke="#dcebf5" stroke-width="2"/>
+        <text x="535" y="200" text-anchor="middle" font-size="13" font-weight="bold" fill="#17334d" font-family="sans-serif">PD 100W</text>
+        <text x="535" y="218" text-anchor="middle" font-size="12" fill="#5d7285" font-family="sans-serif">充電器</text>
+        <line x1="450" y1="165" x2="490" y2="200" stroke="#5d7285" stroke-width="4"/>
+        <text x="320" y="272" text-anchor="middle" font-size="15" fill="#5d7285" font-family="sans-serif">1本のUSB-Cから、画面・充電・USBを広げる（イメージ）</text>
+      </svg>
+      <figcaption>イラスト（イメージ）：ノートPCにハブを1本つなぎ、4Kモニターと充電器へ広げる様子。実際の商品（UGREEN Revodok USB-C ハブ 6-in-1）の写真ではありません。</figcaption>
+    </figure>
+    <div class="tscroll">
+    <table>
+      <colgroup><col style="width:24%"><col style="width:76%"></colgroup>
+      <tr><th>項目</th><th>仕様（楽天商品ページより、2026-11-24確認）</th></tr>
+      <tr><td>商品番号</td><td>45363（UGREEN公式楽天市場店）</td></tr>
+      <tr><td>HDMI</td><td><span class="num">4K@60Hz</span> ×1</td></tr>
+      <tr><td>USB-Cポート</td><td>USB-C 3.2 Gen 2（<span class="num">10Gbps</span>）×2。データ転送専用で、映像出力・充電には非対応</td></tr>
+      <tr><td>USB-Aポート</td><td>USB-A 3.2 Gen 2（<span class="num">10Gbps</span>）×2</td></tr>
+      <tr><td>PD充電</td><td>USB-C PDポートによるパススルー充電、最大 <span class="num">100W</span></td></tr>
+      <tr><td>カードリーダー・LAN</td><td>このタイプ（スタンダード6-in-1）には付いていない。同じ商品ページでLAN付き6-in-1、SDカードリーダー付き8-in-1、SD＋LAN付き9-in-1が選べる</td></tr>
+      <tr><td>保証</td><td><span class="num">24ヶ月</span>保証</td></tr>
+      <tr><td>サイズ・重さ</td><td>梱包サイズ 18.1×10×1.9cm、重さ110g</td></tr>
+      <tr><td>レビュー</td><td>総合評価4.66（202件、2026-11-24確認時点）</td></tr>
+    </table>
+    </div>
+    <p>4K@60Hz対応と、USB-C・USB-Aとも10Gbpsのポートが2つずつある構成は、同じ価格帯のハブの中では目立つ組み合わせです。外付けSSDなど、高速転送したい機器をつなぐ人に向いています。反対に、SDカードの読み込みや有線LANが要る人は、同じ商品ページの別タイプ（8-in-1／9-in-1）を選ぶ必要があります。</p>
+    <a class="afflink" href="https://hb.afl.rakuten.co.jp/ichiba/59c9683b.bc2fdc8a.59c9683c.70170620/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fugreen-gear%2F45363%2F" target="_blank" rel="noopener sponsored">#PR 楽天市場で UGREEN Revodok USB-C ハブ (6-in-1) を見る（UGREEN公式楽天市場店）</a>
+    <p>価格は変動します。リンク先の表示価格をご確認ください。なお、確認時（2026-11-24）の参考表示は2,999円〜で、11/25までのクーポン利用で2,099円との表示がありましたが、現在の価格・クーポンの有無ではありません。クーポンの条件はリンク先でご確認ください。</p>
+
+    <h2>判定</h2>
+    <div class="verdict"><p><b>4Kモニターを60Hzで使いたいなら、仕様欄に「4K@60Hz」とあるものを。</b>「4K対応」だけでは30Hzのことが多く、毎日使うメインモニターでは後悔しやすいポイントです。<b>充電は充電器のW数とセットで見る。</b>ハブのPD上限だけ見ても、充電器の出力が低ければ届きません。<b>買う前は上の5点チェック。</b>とくにPCのUSB-Cが映像出力に対応しているかは、ハブを買う前に必ず確認してください。対応していなければ、どのハブを買っても映りません。</p></div>
+
+    <h2>注記</h2>
+    <ul>
+      <li><b>試用なし：</b>この記事は公開仕様にもとづく選び方ガイドです。現物を手元で使ったレビューではありません。画面のなめらかさや充電の速さは、PC・モニター・ケーブル・充電器の組み合わせで変わります。</li>
+      <li><b>タイプ違いに注意：</b>同じ商品ページで4タイプ（スタンダード6-in-1／LANポート付き6-in-1／SDカードリーダー付き8-in-1／SD＋LAN付き9-in-1）が選べます。この記事のリンクはスタンダードタイプ（商品番号45363）です。LANやカードリーダーが要る場合は、購入前にタイプを確認してください。</li>
+      <li><b>データ専用ポート：</b>10GbpsのUSB-Cポートはデータ転送専用で、映像出力・充電には対応していません。充電はPDポート、映像はHDMIポートを使います。</li>
+      <li><b>PD充電器の抜き差し：</b>メーカーの注意書きに、使用中にPD充電器を抜き差ししないよう記載があります。画面表示やデータ転送中の抜き差しは避けてください。</li>
+      <li><b>価格の変動：</b>価格は時期や店舗、クーポンの有無で変わります。この記事では価格を断定しません。購入前にリンク先でご確認ください。</li>
+      <li><b>仕様の変動：</b>メーカーの仕様は予告なく変更されることがあります。最終的には商品ページの表示をご確認ください。</li>
+    </ul>
+
+    <div class="back"><a href="index.html">&lt; ワークツール試し隊トップへ戻る</a></div>
+  </main>
+
+  <footer>
+    <p>© ワークツール試し隊 編集部 ｜ <a href="index.html#pr">広告について</a> ｜ <a href="privacy.html">プライバシーポリシー</a> ｜ <a href="https://www.youtube.com/@worktoollabo" target="_blank" rel="noopener">お問い合わせ（YouTube）</a></p>
+  </footer>
+</div>
+</body>
+</html>
