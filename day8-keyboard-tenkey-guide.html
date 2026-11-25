@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>テンキー付き vs テンキーレスキーボード：デスク幅と作業効率で選ぶ｜ワークツール試し隊</title>
+<meta name="description" content="テンキー付きとテンキーレスの選び方を、机幅の実測値で比較。フルサイズ約440mm級に対し、ロジクール K855は355.2mmで差は約85mm。その85mmがマウスのスペースになります。打鍵感の見方と買う前チェック3点も整理しました。">
+<style>
+  :root{
+    --bg:#f3f7fc; --surface:#ffffff; --line:#dcebf5;
+    --ink:#17334d; --muted:#5d7285; --blue:#0284c7; --sky:#0ea5e9; --cyan:#06b6d4; --accent:#f97316; --green:#16a34a;
+    --shadow:0 10px 30px rgba(2,132,199,.10);
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);line-height:1.9;
+    font-family:system-ui,-apple-system,"Hiragino Sans","Noto Sans JP",sans-serif;}
+  .wrap{max-width:860px;margin:0 auto;padding:0 20px}
+  header.top{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);margin:0 -20px;padding:12px 20px;
+    display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+  .logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.05rem}
+  .logo .mark{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:12px;
+    background:linear-gradient(135deg,var(--sky),var(--cyan));color:#fff;font-weight:900;font-size:1.1rem;
+    box-shadow:0 6px 16px rgba(14,165,233,.35)}
+  .logo .sub{display:block;font-size:.68rem;font-weight:700;letter-spacing:.14em;color:var(--muted);line-height:1.2}
+  .logo a{color:var(--ink);text-decoration:none;display:flex;align-items:center;gap:10px}
+  nav{display:flex;align-items:center;flex-wrap:wrap}
+  nav a{color:var(--muted);text-decoration:none;margin-left:18px;font-size:.9rem;font-weight:700}
+  nav a:hover{color:var(--blue)}
+  nav a.yt{margin-left:20px;background:linear-gradient(90deg,#ef4444,#dc2626);color:#fff;border-radius:999px;
+    padding:7px 16px;box-shadow:0 6px 16px rgba(220,38,38,.28)}
+  nav a.yt:hover{color:#fff;opacity:.92}
+  main{padding:36px 0}
+  .badge{display:inline-block;font-size:.78rem;font-weight:800;letter-spacing:.08em;color:#fff;
+    background:linear-gradient(90deg,var(--accent),#facc15);border-radius:999px;padding:6px 14px;margin-bottom:18px;
+    box-shadow:0 6px 14px rgba(249,115,22,.30)}
+  h1{font-size:1.9rem;line-height:1.4;margin:0 0 10px;font-weight:900}
+  .meta{font-size:.85rem;font-weight:700;color:#ea580c;margin-bottom:24px}
+  .notice{background:#fff7ed;border:1px solid #fed7aa;border-left:5px solid var(--accent);border-radius:14px;padding:18px 22px;color:var(--muted);font-size:.92rem;margin:0 0 28px}
+  .notice b{color:var(--ink)}
+  h2{font-size:1.25rem;font-weight:900;letter-spacing:.04em;color:var(--ink);margin:46px 0 16px;display:flex;align-items:center;gap:10px}
+  h2::before{content:"";width:10px;height:24px;border-radius:6px;background:linear-gradient(180deg,var(--accent),#facc15)}
+  h3{font-size:1.1rem;margin:24px 0 8px}
+  p{margin:0 0 16px}
+  .panel{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:26px;margin:0 0 14px;box-shadow:var(--shadow)}
+  .panel p:last-child{margin-bottom:0}
+  .tscroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0 0 18px;background:var(--surface);
+    border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow)}
+  table{width:100%;min-width:680px;border-collapse:collapse;font-size:.95rem;line-height:1.7}
+  th,td{border-bottom:1px solid var(--line);padding:14px 16px;text-align:left;vertical-align:top}
+  th{white-space:nowrap}
+  td:first-child{white-space:nowrap}
+  tr:last-child td{border-bottom:none}
+  th{background:#ffedd5;color:#9a3412;font-weight:800}
+  td .num{color:#ea580c;font-weight:800}
+  .verdict{background:#f0fdf4;border:2px dashed #86efac;border-radius:16px;padding:20px 24px;margin:0 0 14px}
+  .verdict b{color:var(--green)}
+  ul{margin:0 0 14px;padding-left:22px;color:var(--muted)}
+  li{margin-bottom:6px}
+  li b{color:var(--ink)}
+  .afflink{display:inline-block;background:linear-gradient(90deg,#f97316,#ef4444);color:#fff;font-weight:800;border-radius:999px;padding:14px 28px;text-decoration:none;margin:6px 0 14px;box-shadow:0 10px 22px rgba(249,115,22,.35)}
+  .afflink:hover{opacity:.92}
+  .product-fig{margin:0 0 20px;background:linear-gradient(135deg,#e0f2fe,#ecfeff 60%,#fff7ed);
+    border:1px solid var(--line);border-radius:18px;padding:24px 24px 16px;box-shadow:var(--shadow)}
+  .product-fig svg{display:block;width:100%;height:auto}
+  .product-fig figcaption{margin-top:12px;font-size:.82rem;line-height:1.6;color:var(--muted);text-align:center}
+  .back{margin-top:40px;padding-top:20px;border-top:1px solid var(--line)}
+  .back a{display:inline-block;color:var(--blue);text-decoration:none;font-weight:800;font-size:.9rem;background:#fff;border:2px solid #7dd3fc;border-radius:999px;padding:8px 18px}
+  footer{border-top:1px solid var(--line);margin-top:32px;padding:26px 0 40px;color:var(--muted);font-size:.85rem}
+  footer a{color:var(--blue);text-decoration:none}
+  @media(max-width:560px){h1{font-size:1.5rem}nav a{margin-left:12px}.panel{padding:20px}.notice{padding:16px 18px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="logo"><a href="index.html"><span class="mark">W</span><span>ワークツール試し隊<span class="sub">ワークツールラボ</span></span></a></div>
+    <nav><a href="index.html#reviews">検証記事</a><a href="index.html#pr">PR</a><a class="yt" href="https://www.youtube.com/@worktoollabo" target="_blank" rel="noopener">YouTube</a></nav>
+  </header>
+
+  <main>
+    <span class="badge">第8弾</span>
+    <h1>テンキー付き vs テンキーレスキーボード：デスク幅と作業効率で選ぶ</h1>
+    <p class="meta">第8弾 / デスクガジェット / 仕様確認日：2026-11-25</p>
+
+    <p class="notice"><b>#PR 開示：</b>この記事にはアフィリエイトリンク（楽天市場）が含まれます。リンク先で購入があった場合、当メディアに報酬が発生することがあります。報酬の有無で評価を変えることはありません。なお、この記事は「選び方ガイド」です。紹介する商品の現物を手元で試用したレビューではありません。仕様は楽天商品ページとメーカー公式情報の公開情報をもとに整理しています（確認日：2026-11-25）。価格は変動するため、この記事では断定しません。購入前にリンク先の表示でご確認ください。</p>
+
+    <h2>結論</h2>
+    <div class="panel">
+      <p><b>結論：</b>テンキー付きとテンキーレスの差は、まず机幅の数字で決まります。一般的なテンキー付きキーボードは幅440mm前後のものが多く、テンキーレスのK855は355.2mmで、差は約85mmです。この85mmが、マウスを動かすスペースになります。数字をよく打つ人はテンキー付き、数字をあまり打たない人はテンキーレスで机を広く使う、というのが選び方の軸です。買う前は自分の机の幅を測って、キーボード＋マウス分のスペースがあるか確認してください。</p>
+    </div>
+
+    <h2>机幅の数値で比べる</h2>
+    <p>テンキーの有無でいちばん分かりやすい違いは、キーボードの横幅です。数字で比べると、選ぶ基準がはっきりします。</p>
+    <div class="tscroll">
+    <table>
+      <colgroup><col style="width:26%"><col style="width:37%"><col style="width:37%"></colgroup>
+      <tr><th>比べる点</th><th>テンキー付き（フルサイズ）</th><th>テンキーレス（K855）</th></tr>
+      <tr><td><b>横幅</b></td><td>一般的な機種で <span class="num">440mm前後</span>のものが多い（機種によって変わります）</td><td><span class="num">355.2mm</span>（楽天商品ページの仕様表より）</td></tr>
+      <tr><td><b>幅の差</b></td><td colspan="2">約 <span class="num">85mm</span>。この差が、マウスを動かすスペースになります</td></tr>
+      <tr><td><b>奥行き・高さ</b></td><td>機種によって変わります</td><td>138.8mm × 38.8mm</td></tr>
+      <tr><td><b>重さ</b></td><td>機種によって変わります</td><td><span class="num">692.4g</span>（電池含む）</td></tr>
+    </table>
+    </div>
+    <p>机の幅が60cmしかない場合、フルサイズのキーボード（約440mm）を置くと、マウスのスペースは約16cmしか残りません。テンキーレス（355.2mm）なら約24cm残ります。数字を打つ機会が少ない人にとって、この8cmほどの差は作業のしやすさに直結します。反対に、机が広くて数字入力が多い人なら、テンキー付きのほうが速いのは確かです。</p>
+
+    <h2>テンキーの有無で変わること</h2>
+    <div class="tscroll">
+    <table>
+      <colgroup><col style="width:22%"><col style="width:39%"><col style="width:39%"></colgroup>
+      <tr><th>比べる点</th><th>テンキー付き</th><th>テンキーレス</th></tr>
+      <tr><td><b>数字入力</b></td><td>テンキーで素早く打てる。表計算・経理・伝票入力が多い人に向いている</td><td>数字は横一列のキーで打つ。数字をあまり打たない人なら問題になりにくい</td></tr>
+      <tr><td><b>右手とマウスの距離</b></td><td>テンキーの分だけ右手がマウスから遠くなる</td><td>右手がマウスに近づく。マウス操作が多い人に向いている</td></tr>
+      <tr><td><b>机の使い方</b></td><td>キーボードだけで机幅の多くを使う</td><td>空いたスペースにマウス・書類・スマホを置ける</td></tr>
+      <tr><td><b>持ち運び</b></td><td>大きくて重いものが多い</td><td>コンパクトで軽めのものが多い（K855は692.4g）</td></tr>
+    </table>
+    </div>
+
+    <h2>打鍵感の見方</h2>
+    <p>K855のキースイッチはメカニカル（赤軸・リニア）です。押したときに「カチッ」という感触がなく、まっすぐ沈むタイプで、キーピッチ19mm、キーストローク4±0.4mm、押下圧45±15gです。押下圧45g前後は、軽すぎず重すぎない、一般的な重さです。</p>
+    <p>ただし、打鍵音については注意が必要です。この記事では実機で音を比べていないため、音の静かさは断定しません。「赤軸＝静か」と決めつけるのは間違いで、赤軸はあくまで「感触のないリニアタイプ」という意味です。音の大きさは、キーの構造だけでなく、机の材質や打ち方でも変わります。静かさが最優先の人は、静音設計をうたうモデルを別に探してください。</p>
+
+    <h2>買う前チェック</h2>
+    <p>買う前に、自分の環境でこの3点を確認してください。</p>
+    <div class="tscroll">
+    <table>
+      <colgroup><col style="width:26%"><col style="width:37%"><col style="width:37%"></colgroup>
+      <tr><th>チェック項目</th><th>確認方法</th><th>合わないとどうなるか</th></tr>
+      <tr><td><span class="num">1. 自分の机の幅を測る</span></td><td>机の幅からキーボードの幅（K855なら355.2mm）を引き、マウス分のスペースが残るか見る</td><td>キーボードだけで机がいっぱいになり、マウスを動かす場所がなくなる</td></tr>
+      <tr><td><span class="num">2. 数字をよく打つか</span></td><td>1日の仕事でテンキーを使う場面があるか、自分の使い方で判断する</td><td>数字入力が多いのにテンキーレスを選ぶと、横一列の数字キーで打つことになり遅くなる</td></tr>
+      <tr><td><span class="num">3. 有線でつなぎたいか</span></td><td>K855はワイヤレス専用（Logi Bolt＋Bluetooth）で、有線接続には対応していないことを確認する</td><td>有線で使いたいのに買うと、ケーブルでつなげない。充電式でもなく単4電池式</td></tr>
+    </table>
+    </div>
+
+    <h2>商品の例</h2>
+    <h3>ロジクール SIGNATURE K855 ワイヤレス メカニカルTKL キーボード（オフホワイト K855OW、ディーライズ2号店）</h3>
+    <p>テンキーレスで机を広く使いたい場合の例として、仕様を整理します。Logi BoltとBluetoothで最大3台まで切り替えられ、単4電池で最長36ヶ月もつとされています（メーカー公表）。バックライトは付いていません。</p>
+    <figure class="product-fig">
+      <svg viewBox="0 0 640 300" role="img" aria-label="テンキーレスキーボードとマウスの配置イメージ図">
+        <defs>
+          <linearGradient id="kbGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e0f2fe"/><stop offset="1" stop-color="#fff7ed"/></linearGradient>
+        </defs>
+        <rect x="0" y="0" width="640" height="300" rx="16" fill="url(#kbGrad)"/>
+        <rect x="60" y="90" width="330" height="120" rx="12" fill="#17334d"/>
+        <g fill="#ffffff">
+          <rect x="76" y="104" width="26" height="22" rx="4"/><rect x="108" y="104" width="26" height="22" rx="4"/><rect x="140" y="104" width="26" height="22" rx="4"/><rect x="172" y="104" width="26" height="22" rx="4"/><rect x="204" y="104" width="26" height="22" rx="4"/><rect x="236" y="104" width="26" height="22" rx="4"/><rect x="268" y="104" width="26" height="22" rx="4"/><rect x="300" y="104" width="26" height="22" rx="4"/><rect x="332" y="104" width="26" height="22" rx="4"/><rect x="364" y="104" width="10" height="22" rx="3"/>
+          <rect x="76" y="132" width="26" height="22" rx="4"/><rect x="108" y="132" width="26" height="22" rx="4"/><rect x="140" y="132" width="26" height="22" rx="4"/><rect x="172" y="132" width="26" height="22" rx="4"/><rect x="204" y="132" width="26" height="22" rx="4"/><rect x="236" y="132" width="26" height="22" rx="4"/><rect x="268" y="132" width="26" height="22" rx="4"/><rect x="300" y="132" width="26" height="22" rx="4"/><rect x="332" y="132" width="26" height="22" rx="4"/><rect x="364" y="132" width="10" height="22" rx="3"/>
+          <rect x="76" y="160" width="26" height="22" rx="4"/><rect x="108" y="160" width="26" height="22" rx="4"/><rect x="140" y="160" width="26" height="22" rx="4"/><rect x="172" y="160" width="26" height="22" rx="4"/><rect x="204" y="160" width="26" height="22" rx="4"/><rect x="236" y="160" width="26" height="22" rx="4"/><rect x="268" y="160" width="26" height="22" rx="4"/><rect x="300" y="160" width="26" height="22" rx="4"/><rect x="332" y="160" width="26" height="22" rx="4"/><rect x="364" y="160" width="10" height="22" rx="3"/>
+          <rect x="76" y="188" width="42" height="14" rx="4"/><rect x="124" y="188" width="120" height="14" rx="4"/><rect x="250" y="188" width="42" height="14" rx="4"/><rect x="298" y="188" width="26" height="14" rx="4"/><rect x="330" y="188" width="26" height="14" rx="4"/><rect x="362" y="188" width="12" height="14" rx="3"/>
+        </g>
+        <text x="225" y="70" text-anchor="middle" font-size="15" font-weight="bold" fill="#17334d" font-family="sans-serif">テンキーレス 355.2mm</text>
+        <ellipse cx="480" cy="150" rx="42" ry="56" fill="#f97316"/>
+        <text x="480" y="156" text-anchor="middle" font-size="15" font-weight="bold" fill="#ffffff" font-family="sans-serif">マウス</text>
+        <text x="480" y="70" text-anchor="middle" font-size="15" font-weight="bold" fill="#17334d" font-family="sans-serif">空いた約85mmがマウスの場所に</text>
+        <line x1="392" y1="150" x2="436" y2="150" stroke="#5d7285" stroke-width="4" stroke-dasharray="8 6"/>
+        <text x="320" y="272" text-anchor="middle" font-size="15" fill="#5d7285" font-family="sans-serif">テンキーをなくすと、右側にマウスのスペースが生まれる（イメージ）</text>
+      </svg>
+      <figcaption>イラスト（イメージ）：テンキーレスキーボードとマウスの配置。実際の商品（ロジクール SIGNATURE K855）の写真ではありません。</figcaption>
+    </figure>
+    <div class="tscroll">
+    <table>
+      <colgroup><col style="width:24%"><col style="width:76%"></colgroup>
+      <tr><th>項目</th><th>仕様（楽天商品ページより、2026-11-25確認）</th></tr>
+      <tr><td>型番・カラー</td><td>K855（メーカー型番）、カラー型番 <span class="num">K855OW</span>（オフホワイト）。カラー展開はグラファイト K855GR／オフホワイト K855OW／ローズ K855RO／ブルーグレー K855BG の4色。ただしこの商品ページで選べるのはオフホワイト1色のみ</td></tr>
+      <tr><td>サイズ・重さ</td><td><span class="num">355.2×138.8×38.8mm</span>、<span class="num">692.4g</span>（電池含む）</td></tr>
+      <tr><td>キースイッチ</td><td>メカニカル（赤軸・リニア）、キーピッチ <span class="num">19mm</span>、キーストローク <span class="num">4±0.4mm</span>、押下圧 <span class="num">45±15g</span></td></tr>
+      <tr><td>接続方式</td><td>ワイヤレス（Logi Bolt＋Bluetooth、最大3台・Easy-Switch）。有線接続非対応。バックライトなし</td></tr>
+      <tr><td>電源・電池寿命</td><td>単4電池。電池寿命は楽天商品ページに記載なし。メーカー公表では最長 <span class="num">36ヶ月</span></td></tr>
+      <tr><td>保証</td><td>メーカー公表では2年保証。楽天商品ページに保証期間の明記なし（この商品は「延長保証対象外」と表示）</td></tr>
+      <tr><td>対応OS</td><td>Windows／Mac OS／iOS／Android／iPadOS／Linux／Chrome OS。角度調整機能○、Mac用キー配列○</td></tr>
+      <tr><td>レビュー</td><td>商品レビューは表示なし（「レビューを書く」のみ）。店舗の総合評価4.4は商品レビューではないため、ここでは使いません</td></tr>
+    </table>
+    </div>
+    <p>テンキーレスで幅355.2mm、Logi BoltとBluetoothで最大3台まで切り替えられる構成は、机を広く使いたい人に向いています。反対に、有線でつなぎたい人や、暗い部屋でバックライトが要る人には向きません。カラーは4色ありますが、この商品ページで選べるのはオフホワイト1色のみで、ほかの色が欲しい場合は別の商品ページを探す必要があります。</p>
+    <a class="afflink" href="https://hb.afl.rakuten.co.jp/ichiba/59c9683b.bc2fdc8a.59c9683c.70170620/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fe-cutestyle%2Fp000000801665%2F" target="_blank" rel="noopener sponsored">#PR 楽天市場で ロジクール SIGNATURE K855（オフホワイト）を見る（ディーライズ2号店）</a>
+    <p>価格は変動します。リンク先の表示価格をご確認ください。なお、確認時（2026-11-25）の参考表示は13,270円（送料無料）でしたが、現在の価格ではありません。</p>
+
+    <h2>判定</h2>
+    <div class="verdict"><p><b>数字をあまり打たないなら、テンキーレスで机を広く使うほうが作業しやすい。</b>フルサイズ約440mm級とK855の355.2mmの差は約85mmで、その分だけマウスが動かせます。<b>数字入力が多い人はテンキー付きも考える。</b>表計算や伝票入力が多い人には、テンキーの速さは無視できません。<b>買う前は上の3点チェック。</b>とくに机の幅を測ることと、有線接続ができない点は、買う前に必ず確認してください。</p></div>
+
+    <h2>注記</h2>
+    <ul>
+      <li><b>試用なし：</b>この記事は公開仕様にもとづく選び方ガイドです。現物を手元で使ったレビューではありません。打鍵感や音の大きさは、机の材質や打ち方でも変わります。</li>
+      <li><b>打鍵音は断定しない：</b>実機で音を比べていないため、この記事では音の静かさを断定しません。「赤軸＝静か」という決めつけもしていません。</li>
+      <li><b>カラーに注意：</b>この商品ページで選べるのはオフホワイト1色のみです。グラファイト・ローズ・ブルーグレーが欲しい場合は、別の商品ページを探してください。</li>
+      <li><b>レビュー表示なし：</b>確認時（2026-11-25）、この商品ページに商品レビューの表示はありませんでした。購入前にほかの店舗のページのレビューも確認してください。</li>
+      <li><b>公式ストアでの取り扱い：</b>ロジクール公式ストアの店内検索では、K855本体の取り扱いを確認できませんでした（Logi Bolt USBレシーバーのみヒット）。公式ストアで買いたい場合は、取り扱いの有無を改めてご確認ください。</li>
+      <li><b>価格の変動：</b>価格は時期や店舗、クーポンの有無で変わります。この記事では価格を断定しません。購入前にリンク先でご確認ください。</li>
+      <li><b>仕様の変動：</b>メーカーの仕様は予告なく変更されることがあります。最終的には商品ページの表示をご確認ください。</li>
+    </ul>
+
+    <div class="back"><a href="index.html">&lt; ワークツール試し隊トップへ戻る</a></div>
+  </main>
+
+  <footer>
+    <p>© ワークツール試し隊 編集部 ｜ <a href="index.html#pr">広告について</a> ｜ <a href="privacy.html">プライバシーポリシー</a> ｜ <a href="https://www.youtube.com/@worktoollabo" target="_blank" rel="noopener">お問い合わせ（YouTube）</a></p>
+  </footer>
+</div>
+</body>
+</html>
