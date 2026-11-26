@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>検索AI比較：出典を示すAIと示さないAI、仕事で使うならどっちか｜ワークツール試し隊</title>
+<meta name="description" content="同じ質問「2026年度の最低賃金 全国加重平均は？」を3つの検索AIに投げた実測。ログインなしで正解＋出典付きで答えられたのはChatGPTゲスト利用のみ。PerplexityとCopilotはログイン要求で検証できなかった。仕事で使うときの分かれ目は「ログインなしで使えるか」と「出典を示すか」。">
+<style>
+  :root{
+    --bg:#f3f7fc; --surface:#ffffff; --line:#dcebf5;
+    --ink:#17334d; --muted:#5d7285; --blue:#0284c7; --sky:#0ea5e9; --cyan:#06b6d4; --accent:#f97316; --green:#16a34a;
+    --shadow:0 10px 30px rgba(2,132,199,.10);
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);line-height:1.9;
+    font-family:system-ui,-apple-system,"Hiragino Sans","Noto Sans JP",sans-serif;}
+  .wrap{max-width:860px;margin:0 auto;padding:0 20px}
+  header.top{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);margin:0 -20px;padding:12px 20px;
+    display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+  .logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.05rem}
+  .logo .mark{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:12px;
+    background:linear-gradient(135deg,var(--sky),var(--cyan));color:#fff;font-weight:900;font-size:1.1rem;
+    box-shadow:0 6px 16px rgba(14,165,233,.35)}
+  .logo .sub{display:block;font-size:.68rem;font-weight:700;letter-spacing:.14em;color:var(--muted);line-height:1.2}
+  .logo a{color:var(--ink);text-decoration:none;display:flex;align-items:center;gap:10px}
+  nav{display:flex;align-items:center;flex-wrap:wrap}
+  nav a{color:var(--muted);text-decoration:none;margin-left:18px;font-size:.9rem;font-weight:700}
+  nav a:hover{color:var(--blue)}
+  nav a.yt{margin-left:20px;background:linear-gradient(90deg,#ef4444,#dc2626);color:#fff;border-radius:999px;
+    padding:7px 16px;box-shadow:0 6px 16px rgba(220,38,38,.28)}
+  nav a.yt:hover{color:#fff;opacity:.92}
+  main{padding:36px 0}
+  .badge{display:inline-block;font-size:.78rem;font-weight:800;letter-spacing:.08em;color:#fff;
+    background:linear-gradient(90deg,var(--sky),var(--cyan));border-radius:999px;padding:6px 14px;margin-bottom:18px;
+    box-shadow:0 6px 14px rgba(14,165,233,.30)}
+  h1{font-size:1.9rem;line-height:1.4;margin:0 0 10px;font-weight:900}
+  .meta{font-size:.85rem;font-weight:700;color:#0284c7;margin-bottom:24px}
+  .notice{background:#f0f9ff;border:1px solid #bae6fd;border-left:5px solid var(--sky);border-radius:14px;padding:18px 22px;color:var(--muted);font-size:.92rem;margin:0 0 28px}
+  .notice b{color:var(--ink)}
+  h2{font-size:1.25rem;font-weight:900;letter-spacing:.04em;color:var(--ink);margin:46px 0 16px;display:flex;align-items:center;gap:10px}
+  h2::before{content:"";width:10px;height:24px;border-radius:6px;background:linear-gradient(180deg,var(--sky),var(--cyan))}
+  h3{font-size:1.1rem;margin:24px 0 8px}
+  p{margin:0 0 16px}
+  .panel{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:26px;margin:0 0 14px;box-shadow:var(--shadow)}
+  .panel p:last-child{margin-bottom:0}
+  .tscroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0 0 18px;background:var(--surface);
+    border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow)}
+  table{width:100%;min-width:680px;border-collapse:collapse;font-size:.95rem;line-height:1.7}
+  th,td{border-bottom:1px solid var(--line);padding:14px 16px;text-align:left;vertical-align:top}
+  th{white-space:nowrap}
+  td:first-child{white-space:nowrap}
+  tr:last-child td{border-bottom:none}
+  th{background:#e0f2fe;color:#075985;font-weight:800}
+  td .num{color:#0284c7;font-weight:800}
+  .verdict{background:#f0fdf4;border:2px dashed #86efac;border-radius:16px;padding:20px 24px;margin:0 0 14px}
+  .verdict b{color:var(--green)}
+  ul{margin:0 0 14px;padding-left:22px;color:var(--muted)}
+  li{margin-bottom:6px}
+  li b{color:var(--ink)}
+  .back{margin-top:40px;padding-top:20px;border-top:1px solid var(--line)}
+  .back a{display:inline-block;color:var(--blue);text-decoration:none;font-weight:800;font-size:.9rem;background:#fff;border:2px solid #7dd3fc;border-radius:999px;padding:8px 18px}
+  footer{border-top:1px solid var(--line);margin-top:32px;padding:26px 0 40px;color:var(--muted);font-size:.85rem}
+  footer a{color:var(--blue);text-decoration:none}
+  @media(max-width:560px){h1{font-size:1.5rem}nav a{margin-left:12px}.panel{padding:20px}.notice{padding:16px 18px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="logo"><a href="index.html"><span class="mark">W</span><span>ワークツール試し隊<span class="sub">ワークツールラボ</span></span></a></div>
+    <nav><a href="index.html#reviews">検証記事</a><a href="index.html#pr">PR</a><a class="yt" href="https://www.youtube.com/@worktoollabo" target="_blank" rel="noopener">YouTube</a></nav>
+  </header>
+
+  <main>
+    <span class="badge">第9弾</span>
+    <h1>検索AI比較：出典を示すAIと示さないAI、仕事で使うならどっちか</h1>
+    <p class="meta">第9弾 / AIツール / 検証日：2026-11-26</p>
+
+    <p class="notice"><b>開示：</b>この記事にはアフィリエイトリンクは含まれていません。同じ質問を3つの検索AIに同一文言で投げて実際に試した検証記事です（2026-11-26 18:18〜18:22 JST）。いずれのサービスにもログインしていません。新規アカウント作成・購入・課金もしていません。所要時間は目安で、ストップウォッチによる実測ではありません。Geminiは検証対象外です（VM用アカウントでアクセスできないため）。</p>
+
+    <h2>結論</h2>
+    <div class="panel">
+      <p><b>結論：</b>今回の条件（ログインなし・無料枠のみ）で、正解を出典付きで答えられたのはChatGPTのゲスト利用だけでした。PerplexityとMicrosoft Copilotは、ログインなしではそもそも質問できませんでした。仕事で検索AIを使うとき、見るのは2点です。<b>①ログインなしで使えるか。②出典を示すか。</b>出典のない答えは、そのまま資料やメールに使えません。まずこの2点でふるいにかけてから、答えの正確さを比べるのが順番です。</p>
+    </div>
+
+    <h2>投げた質問と正解</h2>
+    <p>3サービスに投げた質問は、まったく同じ文言です。</p>
+    <div class="panel">
+      <p><b>質問：</b>「2026年度の最低賃金 全国加重平均はいくらですか」</p>
+      <p><b>正解：</b><span class="num">1,177円</span>（2025年度1,121円から56円増、引上げ率5.0％）。最高額は東京の1,280円、最低額は宮崎の1,085円。厚生労働省が2026年9月3日に公表した金額です。</p>
+    </div>
+    <p>この質問を選んだ理由は、答えが1つの数字ではっきりしていて、出典があるかどうかで仕事での使い方が変わるからです。調べものの答えは「合っているか」だけでなく「どこから来たか」が大事で、それを見るのに向いた質問です。</p>
+
+    <h2>3サービスの結果</h2>
+    <div class="tscroll">
+    <table>
+      <colgroup><col style="width:20%"><col style="width:27%"><col style="width:27%"><col style="width:26%"></colgroup>
+      <tr><th>比べる点</th><th>ChatGPT（ゲスト利用）</th><th>Perplexity</th><th>Microsoft Copilot</th></tr>
+      <tr><td><b>答えた金額</b></td><td><span class="num">1,177円で正解</span>。2025年度1,121円、引上げ額56円・5.0％、東京1,280円、宮崎1,085円も正しかった</td><td>回答なし</td><td>回答なし</td></tr>
+      <tr><td><b>出典リンク</b></td><td><span class="num">あり・1件</span>（厚生労働省「地域別最低賃金の全国一覧」）。文中に「厚生労働省」の出典表示もあった</td><td>0件</td><td>0件</td></tr>
+      <tr><td><b>所要時間の目安</b></td><td>約30秒前後（1分以内）</td><td>約3秒で回答拒否の表示</td><td>質問の送信に至らず</td></tr>
+      <tr><td><b>ログイン</b></td><td>不要。ゲスト利用（一時チャット）のままWeb検索付きの回答が得られた</td><td>必要。「サインアップして、もう一度リクエストしてください。」と表示。再試行でもサインイン画面</td><td>必要。開くとサインイン案内ページに遷移し、「Go to Chat」でMicrosoftサインイン画面になった</td></tr>
+    </table>
+    </div>
+
+    <h2>ChatGPTゲスト利用：使えた理由</h2>
+    <p>ChatGPTは、ログインなしのゲスト利用（一時チャット）で質問を送れました。Web検索付きの回答で、金額だけでなく引上げ額・引上げ率・最高額と最低額まで正しく、出典として厚生労働省のページが1件付いていました。回答のあとに「Log in to continue」などのログイン案内ダイアログが出ましたが、閉じれば回答は読めました。保存チャット・画像作成・ファイルアップロードにはログインが必要という案内もありましたが、調べものだけならゲスト利用で足ります。</p>
+    <p>ただし注意点もあります。出典が1件だけなので、金額を資料に使うときは、出典先の厚生労働省のページを自分で開いて確かめるのが確実です。AIの答えは「調べものの出発点」で、最終確認は出典元でする、という使い方が向いています。</p>
+
+    <h2>PerplexityとCopilot：試せなかった理由</h2>
+    <p>Perplexityは質問を送ると「サインアップして、もう一度リクエストしてください。」と表示され、再試行でもサインイン画面になりました。Copilotは開くとサインイン案内ページに遷移し、「Go to Chat」を押すとMicrosoftのサインイン画面になりました。ログインなしで使える入力欄は確認できませんでした。</p>
+    <p>ここで大事なのは、これはPerplexityとCopilotが「悪い」という評価ではないことです。今回の条件は「ログインなし・無料枠のみ」で、その条件では検証できなかった、という結果です。ログインして使えば答えられる可能性はありますが、今回の検証ではログインしない方針のため、そこは試していません。仕事で使うときに「とりあえず試したい」場面では、ログイン不要かどうかは大きな分かれ目になります。</p>
+
+    <h2>仕事で使うときの分かれ目</h2>
+    <p>調べものAIを仕事で使うとき、見る順番はこうなります。</p>
+    <div class="tscroll">
+    <table>
+      <colgroup><col style="width:26%"><col style="width:37%"><col style="width:37%"></colgroup>
+      <tr><th>チェック項目</th><th>確認方法</th><th>合わないとどうなるか</th></tr>
+      <tr><td><span class="num">1. ログインなしで使えるか</span></td><td>ゲスト利用・ログインなしで質問を送れるか試す</td><td>アカウント作成が必要になり、気軽な調べものに向かない</td></tr>
+      <tr><td><span class="num">2. 出典を示すか</span></td><td>回答に出典リンクが付いているか、出典元の名前があるか見る</td><td>出典がない答えは、そのまま資料やメールに使えない</td></tr>
+      <tr><td><span class="num">3. 答えが正しいか</span></td><td>出典元のページを開いて、数字が合っているか確かめる</td><td>間違った数字を資料に載せてしまう</td></tr>
+    </table>
+    </div>
+    <p>①と②を満たしたうえで、③を出典元で確かめる。この3段構えが、調べものAIを仕事で使うときの基本です。ChatGPTのゲスト利用は、今回の質問では①と②を満たし、③も出典先の厚生労働省のページで確かめられる形でした。</p>
+
+    <h2>判定</h2>
+    <div class="verdict"><p><b>ログインなしで調べものをするなら、まずChatGPTのゲスト利用を試す。</b>今回の質問では正解の1,177円を出典付きで答え、約30秒で返ってきた。<b>PerplexityとCopilotは、今回の条件では検証できなかった。</b>ログインすれば使える可能性はあるが、ログインなしでは質問すら送れなかった。<b>仕事で使うときは「出典を示すか」を先に見る。</b>出典のない答えは、そのまま資料に使えない。出典元のページを開いて数字を確かめるまでが、調べものの1セットです。</p></div>
+
+    <h2>注記</h2>
+    <ul>
+      <li><b>検証できなかった≠性能が悪い：</b>PerplexityとCopilotはログイン条件のため今回の検証では試せていません。ログインして使えば正しく答えられる可能性はあります。この記事の結論は「ログインなしの条件での結果」です。</li>
+      <li><b>出典は1件のみ：</b>ChatGPTの回答に付いていた出典リンクは厚生労働省のページ1件です。金額を資料に使うときは、出典先のページを自分で開いて確かめてください。</li>
+      <li><b>所要時間は目安：</b>ChatGPTの約30秒は目安で、ストップウォッチによる実測ではありません。回線や混み具合でも変わります。</li>
+      <li><b>ゲスト利用の制限：</b>ChatGPTのゲスト利用では、保存チャット・画像作成・ファイルアップロードにログインが必要という案内がありました。調べものだけなら足りますが、使い込むならログインが必要です。</li>
+      <li><b>Geminiは検証対象外：</b>VM用アカウントでアクセスできないため、2026-11-22の純一判断で検証対象から外しています。</li>
+      <li><b>正解の出典：</b>1,177円という金額は、厚生労働省の公表（2026年9月3日）と朝日新聞の報道にもとづきます。都道府県ごとの金額は、発効時期が10月から12月にかけて順次変わるため、使う時点の表示で確認してください。</li>
+    </ul>
+
+    <div class="back"><a href="index.html">&lt; ワークツール試し隊トップへ戻る</a></div>
+  </main>
+
+  <footer>
+    <p>© ワークツール試し隊 編集部 ｜ <a href="index.html#pr">広告について</a> ｜ <a href="privacy.html">プライバシーポリシー</a> ｜ <a href="https://www.youtube.com/@worktoollabo" target="_blank" rel="noopener">お問い合わせ（YouTube）</a></p>
+  </footer>
+</div>
+</body>
+</html>
