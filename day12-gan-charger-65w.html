@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GaN充電器65Wは正義か：複数台充電の発熱・速度・ケーブル選び｜ワークツール試し隊</title>
+<meta name="description" content="UGREEN Nexode 65W（3ポート）とAnker Nano II 65W（1ポート）の仕様を楽天商品ページの公開情報で比較。「65W」は合計出力で、同時充電では配分が下がる落とし穴と、買う前の3点チェックを整理。">
+<style>
+  :root{
+    --bg:#f3f7fc; --surface:#ffffff; --line:#dcebf5;
+    --ink:#17334d; --muted:#5d7285; --blue:#0284c7; --sky:#0ea5e9; --cyan:#06b6d4; --accent:#f97316; --green:#16a34a;
+    --shadow:0 10px 30px rgba(2,132,199,.10);
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);line-height:1.9;
+    font-family:system-ui,-apple-system,"Hiragino Sans","Noto Sans JP",sans-serif;}
+  .wrap{max-width:860px;margin:0 auto;padding:0 20px}
+  header.top{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);margin:0 -20px;padding:12px 20px;
+    display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+  .logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.05rem}
+  .logo .mark{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:12px;
+    background:linear-gradient(135deg,var(--sky),var(--cyan));color:#fff;font-weight:900;font-size:1.1rem;
+    box-shadow:0 6px 16px rgba(14,165,233,.35)}
+  .logo .sub{display:block;font-size:.68rem;font-weight:700;letter-spacing:.14em;color:var(--muted);line-height:1.2}
+  .logo a{color:var(--ink);text-decoration:none;display:flex;align-items:center;gap:10px}
+  nav{display:flex;align-items:center;flex-wrap:wrap}
+  nav a{color:var(--muted);text-decoration:none;margin-left:18px;font-size:.9rem;font-weight:700}
+  nav a:hover{color:var(--blue)}
+  nav a.yt{margin-left:20px;background:linear-gradient(90deg,#ef4444,#dc2626);color:#fff;border-radius:999px;
+    padding:7px 16px;box-shadow:0 6px 16px rgba(220,38,38,.28)}
+  nav a.yt:hover{color:#fff;opacity:.92}
+  main{padding:36px 0}
+  .badge{display:inline-block;font-size:.78rem;font-weight:800;letter-spacing:.08em;color:#fff;
+    background:linear-gradient(90deg,var(--sky),var(--cyan));border-radius:999px;padding:6px 14px;margin-bottom:18px;
+    box-shadow:0 6px 14px rgba(14,165,233,.30)}
+  h1{font-size:1.9rem;line-height:1.4;margin:0 0 10px;font-weight:900}
+  .meta{font-size:.85rem;font-weight:700;color:#0284c7;margin-bottom:24px}
+  .notice{background:#f0f9ff;border:1px solid #bae6fd;border-left:5px solid var(--sky);border-radius:14px;padding:18px 22px;color:var(--muted);font-size:.92rem;margin:0 0 28px}
+  .notice b{color:var(--ink)}
+  h2{font-size:1.25rem;font-weight:900;letter-spacing:.04em;color:var(--ink);margin:46px 0 16px;display:flex;align-items:center;gap:10px}
+  h2::before{content:"";width:10px;height:24px;border-radius:6px;background:linear-gradient(180deg,var(--sky),var(--cyan))}
+  h3{font-size:1.1rem;margin:24px 0 8px}
+  p{margin:0 0 16px}
+  .panel{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:26px;margin:0 0 14px;box-shadow:var(--shadow)}
+  .panel p:last-child{margin-bottom:0}
+  .tscroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0 0 18px;background:var(--surface);
+    border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow)}
+  table{width:100%;min-width:680px;border-collapse:collapse;font-size:.95rem;line-height:1.7}
+  th,td{border-bottom:1px solid var(--line);padding:14px 16px;text-align:left;vertical-align:top}
+  th{white-space:nowrap}
+  td:first-child{white-space:nowrap}
+  tr:last-child td{border-bottom:none}
+  th{background:#e0f2fe;color:#075985;font-weight:800}
+  td .num{color:#0284c7;font-weight:800}
+  .verdict{background:#f0fdf4;border:2px dashed #86efac;border-radius:16px;padding:20px 24px;margin:0 0 14px}
+  .verdict b{color:var(--green)}
+  ul{margin:0 0 14px;padding-left:22px;color:var(--muted)}
+  li{margin-bottom:6px}
+  li b{color:var(--ink)}
+  .afflink{display:inline-block;background:linear-gradient(90deg,#f97316,#ef4444);color:#fff;font-weight:800;border-radius:999px;padding:14px 28px;text-decoration:none;margin:6px 0 14px;box-shadow:0 10px 22px rgba(249,115,22,.35)}
+  .afflink:hover{opacity:.92}
+  .product-fig{margin:0 0 20px;background:linear-gradient(135deg,#e0f2fe,#ecfeff 60%,#fff7ed);
+    border:1px solid var(--line);border-radius:18px;padding:24px 24px 16px;box-shadow:var(--shadow)}
+  .product-fig svg{display:block;width:100%;height:auto}
+  .product-fig figcaption{margin-top:12px;font-size:.82rem;line-height:1.6;color:var(--muted);text-align:center}
+  .back{margin-top:40px;padding-top:20px;border-top:1px solid var(--line)}
+  .back a{display:inline-block;color:var(--blue);text-decoration:none;font-weight:800;font-size:.9rem;background:#fff;border:2px solid #7dd3fc;border-radius:999px;padding:8px 18px}
+  footer{border-top:1px solid var(--line);margin-top:32px;padding:26px 0 40px;color:var(--muted);font-size:.85rem}
+  footer a{color:var(--blue);text-decoration:none}
+  @media(max-width:560px){h1{font-size:1.5rem}nav a{margin-left:12px}.panel{padding:20px}.notice{padding:16px 18px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="logo"><a href="index.html"><span class="mark">W</span><span>ワークツール試し隊<span class="sub">ワークツールラボ</span></span></a></div>
+    <nav><a href="index.html#reviews">検証記事</a><a href="index.html#pr">PR</a><a class="yt" href="https://www.youtube.com/@worktoollabo" target="_blank" rel="noopener">YouTube</a></nav>
+  </header>
+
+  <main>
+    <span class="badge">第12弾</span>
+    <h1>GaN充電器65Wは正義か：複数台充電の発熱・速度・ケーブル選び</h1>
+    <p class="meta">第12弾 / デスクガジェット / 検証日：2026-11-27 #PR</p>
+
+    <p class="notice"><b>#PR 開示：</b>この記事には楽天アフィリエイトリンクが含まれています。リンク先で購入があった場合、当メディアに報酬が発生することがあります。商品の仕様は楽天商品ページの公開情報で確認しています（2026-11-27）。手元に現物はなく、試用レビューではありません。価格は変動するため断定しません。リンク先の表示価格をご確認ください。</p>
+
+    <h2>結論</h2>
+    <div class="panel">
+      <p><b>結論：</b>「65W」は1ポートの出力ではなく、充電器全体の合計出力です。買う前に決めるのは1つだけ、<b>同時に何台つなぐか</b>。ノートPC＋スマホ＋イヤホンの3台を1個でまとめたいなら3ポート型、ノートPC1台の持ち歩きに割り切るなら1ポート型です。3ポート型でも、3台同時では1台あたりの出力は下がります。3台目は「つないでおく用」と割り切るのが正解です。</p>
+    </div>
+
+    <h2>「65W」の落とし穴：合計出力と配分</h2>
+    <p>UGREEN Nexode 65W（3ポート）の商品ページの仕様表を見ると、同時使用時の出力の配分がはっきり書かれています。</p>
+    <div class="tscroll">
+    <table>
+      <colgroup><col style="width:26%"><col style="width:37%"><col style="width:37%"></colgroup>
+      <tr><th>つなぐ台数</th><th>UGREEN Nexode 65W（3ポート）の配分</th><th>どう読むか</th></tr>
+      <tr><td><b>1台だけ</b></td><td>USB-C単ポートで<span class="num">最大65W</span>（20V/3.25A）</td><td>ノートPC1台ならフルスピードで充電できる</td></tr>
+      <tr><td><b>2台同時</b></td><td>USB-C×2で<span class="num">PD45W＋PD20W</span></td><td>ノート側45W、スマホ側20W。ノートの充電は進む配分</td></tr>
+      <tr><td><b>3台同時</b></td><td><span class="num">PD45W＋5V/1.5A＋5V/1.5A</span>（＝7.5W＋7.5W）</td><td>3台目は「つないでおく用」。速さは期待しない</td></tr>
+    </table>
+    </div>
+    <p>つまり「65Wを買ったのに遅い」と感じる原因の多くは、合計65Wを3台で分け合っているからです。商品ページに配分が公表されている製品は、この落とし穴が見えやすいので選びやすい、というのが今回の発見です。なお商品ページには、充電中に1つのPDポートを抜くと、電流の再分配のために他のポートが瞬断して再接続されることがある、とも書かれています。つないだまま抜き差しする使い方には注意が必要です。</p>
+
+    <h2>比べた2製品の仕様</h2>
+    <div class="tscroll">
+    <table>
+      <colgroup><col style="width:20%"><col style="width:40%"><col style="width:40%"></colgroup>
+      <tr><th>比べる点</th><th>UGREEN Nexode 65W（3ポート）</th><th>Anker Nano II 65W（1ポート）</th></tr>
+      <tr><td><b>ポート</b></td><td>USB-C×2＋USB-A×1、合計3ポート</td><td>USB-C×1のみ</td></tr>
+      <tr><td><b>最大出力</b></td><td><span class="num">合計65W</span>。単ポート時はUSB-Cが65W、USB-Aは最大22.5W</td><td><span class="num">65W</span>（1ポートなのでそのまま使える）</td></tr>
+      <tr><td><b>同時充電</b></td><td>3台まで。配分は上の表のとおり</td><td>1台だけ</td></tr>
+      <tr><td><b>サイズ・重さ</b></td><td>約65×40×30mm・約130g（メーカー公表値）</td><td>約44×42×36mm・約112g（メーカー公表値）</td></tr>
+      <tr><td><b>プラグ</b></td><td>折りたたみ式</td><td>折りたたみ式</td></tr>
+      <tr><td><b>対応規格</b></td><td>PD3.0／QC4+／PPS対応、PSE技術基準適合</td><td>PD対応、PSE技術基準適合</td></tr>
+      <tr><td><b>ケーブル</b></td><td>別売り</td><td>別売り</td></tr>
+      <tr><td><b>レビュー</b></td><td>4,293件・総合評価4.73（商品ページ表示）</td><td>商品ページにレビュー表示を確認（件数・評価はこの記事では載せない）</td></tr>
+    </table>
+    </div>
+    <p>UGREENはUGREEN公式楽天市場店、Ankerはアンカー・ダイレクト楽天市場店の商品ページで、それぞれ2026-11-27に仕様を確認しています。サイズ・重さはメーカー公表値です。どちらもGaN（窒化ガリウム）採用で、従来のシリコン製より小さな部品で大きな電力を扱えるため、65Wでも手のひらサイズに収まっています。</p>
+
+    <h2>UGREEN Nexode 65W 3ポート</h2>
+    <figure class="product-fig">
+      <svg viewBox="0 0 640 300" role="img" aria-label="3ポート充電器と3台のデバイスの接続イメージ図">
+        <defs>
+          <linearGradient id="chGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e0f2fe"/><stop offset="1" stop-color="#fff7ed"/></linearGradient>
+        </defs>
+        <rect x="0" y="0" width="640" height="300" rx="16" fill="url(#chGrad)"/>
+        <rect x="270" y="110" width="100" height="80" rx="12" fill="#17334d"/>
+        <text x="320" y="140" text-anchor="middle" font-size="15" font-weight="bold" fill="#ffffff" font-family="sans-serif">65W</text>
+        <text x="320" y="164" text-anchor="middle" font-size="13" fill="#bae6fd" font-family="sans-serif">3ポート</text>
+        <rect x="60" y="60" width="120" height="80" rx="10" fill="#ffffff" stroke="#0284c7" stroke-width="3"/>
+        <text x="120" y="92" text-anchor="middle" font-size="14" font-weight="bold" fill="#17334d" font-family="sans-serif">ノートPC</text>
+        <text x="120" y="116" text-anchor="middle" font-size="14" font-weight="bold" fill="#0284c7" font-family="sans-serif">45W</text>
+        <rect x="460" y="60" width="120" height="80" rx="10" fill="#ffffff" stroke="#0284c7" stroke-width="3"/>
+        <text x="520" y="92" text-anchor="middle" font-size="14" font-weight="bold" fill="#17334d" font-family="sans-serif">スマホ</text>
+        <text x="520" y="116" text-anchor="middle" font-size="14" font-weight="bold" fill="#0284c7" font-family="sans-serif">20W</text>
+        <rect x="260" y="220" width="120" height="60" rx="10" fill="#ffffff" stroke="#f97316" stroke-width="3"/>
+        <text x="320" y="246" text-anchor="middle" font-size="14" font-weight="bold" fill="#17334d" font-family="sans-serif">イヤホン</text>
+        <text x="320" y="266" text-anchor="middle" font-size="14" font-weight="bold" fill="#ea580c" font-family="sans-serif">7.5W</text>
+        <line x1="180" y1="120" x2="268" y2="140" stroke="#5d7285" stroke-width="3"/>
+        <line x1="460" y1="120" x2="372" y2="140" stroke="#5d7285" stroke-width="3"/>
+        <line x1="320" y1="192" x2="320" y2="218" stroke="#5d7285" stroke-width="3"/>
+        <text x="320" y="40" text-anchor="middle" font-size="15" font-weight="bold" fill="#17334d" font-family="sans-serif">65Wは合計。3台で分け合う（イメージ）</text>
+      </svg>
+      <figcaption>イラスト（イメージ）：3ポート充電器と3台のデバイスの接続。実際の商品（UGREEN Nexode 65W）の写真ではありません。</figcaption>
+    </figure>
+    <p>3ポート型の代表例です。ノートPCとスマホを2台同時に充電でき、イヤホンを加えた3台同時もできます。ただし上の表のとおり、3台同時ではノート側45W、残り2つは7.5Wずつまで下がります。机の上で「充電器を1個にまとめたい」人に向いています。MacBook Airを約2.1時間、MacBook Pro 13を約1.8時間でフル充電できると商品ページに記載があります（メーカー調べ）。</p>
+    <a class="afflink" href="https://hb.afl.rakuten.co.jp/ichiba/59c9683b.bc2fdc8a.59c9683c.70170620/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fugreen-gear%2F10334%2F" target="_blank" rel="noopener sponsored">#PR 楽天市場で UGREEN Nexode 65W 3ポートを見る（UGREEN公式楽天市場店）</a>
+    <p>価格は変動します。リンク先の表示価格をご確認ください。なお、確認時（2026-11-27）の参考表示は5,480円でしたが、現在の価格ではありません。確認時に11/27〜12/1の先行セール表示がありました。</p>
+
+    <h2>買う前の3点チェック</h2>
+    <div class="tscroll">
+    <table>
+      <colgroup><col style="width:26%"><col style="width:37%"><col style="width:37%"></colgroup>
+      <tr><th>チェック項目</th><th>確認方法</th><th>合わないとどうなるか</th></tr>
+      <tr><td><span class="num">1. 同時に何台つなぐか</span></td><td>普段の充電を数える。ノート＋スマホ＋イヤホンなら3ポート型、PC1台だけなら1ポート型で足りる</td><td>ポートが足りず、結局もう1個充電器が要る</td></tr>
+      <tr><td><span class="num">2. ノートPCに必要なW数</span></td><td>今の純正アダプタのW数を見る。MacBook Airクラスなら45W以上あると安心</td><td>同時充電時にノート側の出力が足りず、充電が遅くなる・減る</td></tr>
+      <tr><td><span class="num">3. ケーブルは付いているか</span></td><td>商品ページの付属品を見る。どちらもケーブルは別売り</td><td>USB-C to Cケーブルを別に買う必要がある</td></tr>
+    </table>
+    </div>
+    <p>②の補足です。ノートPCの純正アダプタが60Wや65Wの機種でも、45Wあれば充電は進みますが、負荷の高い作業中は充電が追いつかないことがあります。「ノートを速く充電したい時間」と「スマホも同時に充電したい時間」が重なる人は、合計100Wクラスの製品も視野に入れたほうがいいかもしれません。この記事の2製品は65Wクラスの中での比較です。</p>
+
+    <h2>判定</h2>
+    <div class="verdict"><p><b>机の上で3台まとめたいなら、3ポート型のUGREEN Nexode 65W。</b>ノート45W＋スマホ20Wの配分で、2台同時でもノートの充電が進みます。<b>カバンに入れてPC1台だけ充電するなら、1ポート型のAnker Nano II 65W。</b>約112gと小さく、ポートが1つしかない分だけ迷いがありません。<b>どちらを選ぶにしても、見るのは「合計65W」ではなく「同時につなぐ台数での配分」です。</b>配分が商品ページに公表されている製品は、この落とし穴が見えやすいので選びやすいです。</p></div>
+
+    <h2>注記</h2>
+    <ul>
+      <li><b>試用レビューではありません：</b>手元に現物はなく、仕様は楽天商品ページの公開情報にもとづきます。発熱の体感や実際の充電速度は測っていません。「速い」「熱くならない」といった体感の断定はしていません。</li>
+      <li><b>価格は断定しません：</b>確認時（2026-11-27）の参考表示は5,480円でしたが、セール表示もあり変動します。購入時はリンク先の表示価格をご確認ください。</li>
+      <li><b>Ankerのレビュー件数・評価：</b>Anker Nano II 65Wの商品ページにレビュー表示があることは確認しましたが、件数・評価はこの記事では載せていません。UGREEN側の4,293件・4.73は2026-11-27の商品ページ表示です。</li>
+      <li><b>サイズ・重さはメーカー公表値：</b>UGREEN約65×40×30mm・約130g、Anker約44×42×36mm・約112gは、それぞれメーカー公式製品ページの公表値です。実測値ではありません。</li>
+      <li><b>ポートの抜き差し：</b>UGREENの商品ページには、充電中に1つのPDポートを抜くと電流の再分配のために他のポートが瞬断して再接続されることがある、と記載があります。</li>
+    </ul>
+
+    <div class="back"><a href="index.html">&lt; ワークツール試し隊トップへ戻る</a></div>
+  </main>
+
+  <footer>
+    <p>© ワークツール試し隊 編集部 ｜ <a href="index.html#pr">広告について</a> ｜ <a href="privacy.html">プライバシーポリシー</a> ｜ <a href="https://www.youtube.com/@worktoollabo" target="_blank" rel="noopener">お問い合わせ（YouTube）</a></p>
+  </footer>
+</div>
+</body>
+</html>

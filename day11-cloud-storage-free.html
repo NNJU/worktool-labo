@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>クラウドストレージ無料枠比較：容量より大事な「共有のしやすさ」｜ワークツール試し隊</title>
+<meta name="description" content="Google Drive・Dropbox・OneDriveの無料枠を比較。容量はDrive 15GB、OneDrive 5GB、Dropbox 2GB。Driveの共有リンク作成を実際に操作して実測（約2分・8クリック）。選ぶときの分かれ目は「相手にアカウントが要るか」と「最初の設定」。">
+<style>
+  :root{
+    --bg:#f3f7fc; --surface:#ffffff; --line:#dcebf5;
+    --ink:#17334d; --muted:#5d7285; --blue:#0284c7; --sky:#0ea5e9; --cyan:#06b6d4; --accent:#f97316; --green:#16a34a;
+    --shadow:0 10px 30px rgba(2,132,199,.10);
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);line-height:1.9;
+    font-family:system-ui,-apple-system,"Hiragino Sans","Noto Sans JP",sans-serif;}
+  .wrap{max-width:860px;margin:0 auto;padding:0 20px}
+  header.top{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);margin:0 -20px;padding:12px 20px;
+    display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+  .logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.05rem}
+  .logo .mark{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:12px;
+    background:linear-gradient(135deg,var(--sky),var(--cyan));color:#fff;font-weight:900;font-size:1.1rem;
+    box-shadow:0 6px 16px rgba(14,165,233,.35)}
+  .logo .sub{display:block;font-size:.68rem;font-weight:700;letter-spacing:.14em;color:var(--muted);line-height:1.2}
+  .logo a{color:var(--ink);text-decoration:none;display:flex;align-items:center;gap:10px}
+  nav{display:flex;align-items:center;flex-wrap:wrap}
+  nav a{color:var(--muted);text-decoration:none;margin-left:18px;font-size:.9rem;font-weight:700}
+  nav a:hover{color:var(--blue)}
+  nav a.yt{margin-left:20px;background:linear-gradient(90deg,#ef4444,#dc2626);color:#fff;border-radius:999px;
+    padding:7px 16px;box-shadow:0 6px 16px rgba(220,38,38,.28)}
+  nav a.yt:hover{color:#fff;opacity:.92}
+  main{padding:36px 0}
+  .badge{display:inline-block;font-size:.78rem;font-weight:800;letter-spacing:.08em;color:#fff;
+    background:linear-gradient(90deg,var(--sky),var(--cyan));border-radius:999px;padding:6px 14px;margin-bottom:18px;
+    box-shadow:0 6px 14px rgba(14,165,233,.30)}
+  h1{font-size:1.9rem;line-height:1.4;margin:0 0 10px;font-weight:900}
+  .meta{font-size:.85rem;font-weight:700;color:#0284c7;margin-bottom:24px}
+  .notice{background:#f0f9ff;border:1px solid #bae6fd;border-left:5px solid var(--sky);border-radius:14px;padding:18px 22px;color:var(--muted);font-size:.92rem;margin:0 0 28px}
+  .notice b{color:var(--ink)}
+  h2{font-size:1.25rem;font-weight:900;letter-spacing:.04em;color:var(--ink);margin:46px 0 16px;display:flex;align-items:center;gap:10px}
+  h2::before{content:"";width:10px;height:24px;border-radius:6px;background:linear-gradient(180deg,var(--sky),var(--cyan))}
+  h3{font-size:1.1rem;margin:24px 0 8px}
+  p{margin:0 0 16px}
+  .panel{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:26px;margin:0 0 14px;box-shadow:var(--shadow)}
+  .panel p:last-child{margin-bottom:0}
+  .tscroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0 0 18px;background:var(--surface);
+    border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow)}
+  table{width:100%;min-width:680px;border-collapse:collapse;font-size:.95rem;line-height:1.7}
+  th,td{border-bottom:1px solid var(--line);padding:14px 16px;text-align:left;vertical-align:top}
+  th{white-space:nowrap}
+  td:first-child{white-space:nowrap}
+  tr:last-child td{border-bottom:none}
+  th{background:#e0f2fe;color:#075985;font-weight:800}
+  td .num{color:#0284c7;font-weight:800}
+  .verdict{background:#f0fdf4;border:2px dashed #86efac;border-radius:16px;padding:20px 24px;margin:0 0 14px}
+  .verdict b{color:var(--green)}
+  ul{margin:0 0 14px;padding-left:22px;color:var(--muted)}
+  li{margin-bottom:6px}
+  li b{color:var(--ink)}
+  .back{margin-top:40px;padding-top:20px;border-top:1px solid var(--line)}
+  .back a{display:inline-block;color:var(--blue);text-decoration:none;font-weight:800;font-size:.9rem;background:#fff;border:2px solid #7dd3fc;border-radius:999px;padding:8px 18px}
+  footer{border-top:1px solid var(--line);margin-top:32px;padding:26px 0 40px;color:var(--muted);font-size:.85rem}
+  footer a{color:var(--blue);text-decoration:none}
+  @media(max-width:560px){h1{font-size:1.5rem}nav a{margin-left:12px}.panel{padding:20px}.notice{padding:16px 18px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="logo"><a href="index.html"><span class="mark">W</span><span>ワークツール試し隊<span class="sub">ワークツールラボ</span></span></a></div>
+    <nav><a href="index.html#reviews">検証記事</a><a href="index.html#pr">PR</a><a class="yt" href="https://www.youtube.com/@worktoollabo" target="_blank" rel="noopener">YouTube</a></nav>
+  </header>
+
+  <main>
+    <span class="badge">第11弾</span>
+    <h1>クラウドストレージ無料枠比較：容量より大事な「共有のしやすさ」</h1>
+    <p class="meta">第11弾 / 仕事効率化サービス / 検証日：2026-11-27</p>
+
+    <p class="notice"><b>開示：</b>この記事にはアフィリエイトリンクは含まれていません。無料枠の容量は3サービスとも公式ページで確認し（2026-11-27）、Google Driveの共有リンク作成は実際に操作して実測しました。DropboxとOneDriveの共有操作は、ログイン画面・承認待ちのため直接の実測ができていません。その部分は公式ヘルプの記載にもとづくことを明記します。受信者側の実際の閲覧は、3サービスとも試していません。</p>
+
+    <h2>結論</h2>
+    <div class="panel">
+      <p><b>結論：</b>容量だけならGoogle Driveの15GBが一番大きい。でもファイル共有で選ぶときは、容量の前に2つ見てください。<b>①相手にアカウントが要るか。②最初の設定がどうなっているか。</b>この2つで、送った相手がすんなり開けるかどうかが決まります。今回、実際に共有リンク作成まで実測できたのはGoogle Driveだけで、約2分・8クリックでした。DropboxとOneDriveは操作の実測ができていないため、この記事の結論は「容量とヘルプの記載にもとづく比較」です。</p>
+    </div>
+
+    <h2>無料枠の容量：3サービスの比較</h2>
+    <div class="tscroll">
+    <table>
+      <colgroup><col style="width:20%"><col style="width:27%"><col style="width:27%"><col style="width:26%"></colgroup>
+      <tr><th>比べる点</th><th>Google Drive</th><th>Dropbox</th><th>OneDrive</th></tr>
+      <tr><td><b>無料枠の容量</b></td><td><span class="num">15GB</span></td><td><span class="num">2GB</span></td><td><span class="num">5GB</span></td></tr>
+      <tr><td><b>容量の注意点</b></td><td>ドライブ・フォト・Gmailで分け合う容量</td><td>Basicプランの無料枠</td><td>メールボックス容量15GBは別表記</td></tr>
+      <tr><td><b>閲覧リンクに相手のアカウントは要るか</b></td><td>不要（実測の画面表示で確認）</td><td>不要（閲覧専用リンクの場合。ヘルプ記載）</td><td>不要（閲覧リンクの場合。ヘルプ記載）</td></tr>
+      <tr><td><b>編集まで共有するとき</b></td><td>共有時に権限を「編集者」に変える（実測では初期は「閲覧者」）</td><td>相手もアカウント必須（ヘルプ記載）</td><td>サインインが必要（ヘルプ記載）。既定では「編集を許可する」がオン</td></tr>
+      <tr><td><b>共有操作の実測</b></td><td>約2分・8クリックで完了（実測）</td><td>ログイン画面で止まり実測できず</td><td>ポータルが承認待ちで開けず実測できず</td></tr>
+    </table>
+    </div>
+    <p>容量の出典は、Google Driveが <a href="https://one.google.com/about/plans" target="_blank" rel="noopener">one.google.com/about/plans</a>、Dropboxが <a href="https://www.dropbox.com/plans" target="_blank" rel="noopener">dropbox.com/plans</a>、OneDriveが <a href="https://www.microsoft.com/en-us/microsoft-365/onedrive/online-cloud-storage" target="_blank" rel="noopener">microsoft.com のOneDrive紹介ページ</a>です。いずれも2026-11-27に確認した表記です。</p>
+
+    <h2>Google Drive：共有リンク作成を実測</h2>
+    <p>VMブラウザにログイン済みの作業用Googleアカウントで、テスト用のGoogleドキュメントを作り、「リンクを知っている全員が閲覧可」の共有設定までを実際に操作しました。手順とクリック数は次のとおりです。</p>
+    <div class="panel">
+      <p>1. Google ドライブを開く（ログイン済み）→ 2. 「新規」をクリック（1）→ 3. 「Google ドキュメント」をクリック（2）→ 4. 本文に「Sharing test」と入力（3）→ 5. 「共有」をクリック（4）→ 6. ファイル名の確認ダイアログで「保存」をクリック（5）→ 7. 共有ダイアログで一般的なアクセス「制限付き」のプルダウンをクリック（6）→ 8. 「リンクを知っている全員」を選択（7）→ 9. 「完了」をクリック（8）。所要時間の目安は約2分、クリック数は8回でした。「リンクをコピー」は押していません。</p>
+    </div>
+    <p>気づいた点は2つあります。まず、<b>最初の設定は「制限付き」</b>で、「リンクを知っている全員」への切り替えがひと手間要ります。切り替え忘れると、相手はリンクを開いても見られません。次に、<b>初期の権限は「閲覧者」</b>でした。相手に見せるだけならこれで十分ですが、編集までさせたいときは権限を変える必要があります。共有ダイアログには「リンクを知っているインターネット上の誰もが閲覧できます」と表示され、閲覧者はアカウント不要であることが画面上で確認できました。テストファイルは作成後にゴミ箱へ移動し、ゴミ箱を空にするところまで含めて完全に削除しました。共有リンクはコピーせず、誰にも送っていません。</p>
+
+    <h2>Dropbox：閲覧と編集でアカウント要否が分かれる</h2>
+    <p>Dropboxは、共有操作の実測ができませんでした。共有ページを開くとログイン画面に遷移し、「Please sign in or register to access this page.」と表示されたためです。新規アカウントは作っていません。公式ヘルプの記載では、閲覧専用リンクなら相手はアカウント不要でプレビューでき、特定の人との閲覧・編集共有では相手もDropboxアカウントへのログインが必要、と分かれています。料金ページにも「アカウントを持っていない人ともリンクで共有できる」とあります。共有リンク作成のヘルプ手順自体がログインから始まるので、送る側はアカウントが要ります。無料枠は2GBと3サービスの中で一番小さいため、容量の面では写真や動画の共有には向きません。閲覧だけのリンクを送る用途なら、アカウント不要という点は使いやすい部類です。</p>
+
+    <h2>OneDrive：閲覧は不要、編集はサインインが必要</h2>
+    <p>OneDriveも、共有操作の実測ができませんでした。ポータル（onedrive.live.com）が承認待ちで開けなかったためです。「ログイン画面で止まった」とは断定せず、未確認として記録します。公式ヘルプの記載では、閲覧リンクはアカウント不要で、編集はMicrosoftアカウントでのサインインが必要、とされています。ヘルプの個人用手順はサインインからリンクのコピー・設定・適用まで9ステップで書かれており、既定では「編集を許可する」がオンと記載されています。つまり、見るだけのつもりで送ったつもりが、相手が編集できてしまう設定になっている可能性がある、ということです。送るときに編集の許可を切るかどうかを確認するのが安心です。無料枠は5GBで、容量ではDriveとDropboxの中間です。</p>
+
+    <h2>共有するときのチェック表</h2>
+    <div class="tscroll">
+    <table>
+      <colgroup><col style="width:26%"><col style="width:37%"><col style="width:37%"></colgroup>
+      <tr><th>チェック項目</th><th>確認方法</th><th>合わないとどうなるか</th></tr>
+      <tr><td><span class="num">1. 相手にアカウントが要るか</span></td><td>閲覧だけのリンクか、編集まで共有するかで分ける。閲覧だけなら3サービスともアカウント不要（ヘルプ・画面表示）</td><td>相手がアカウント作成を求められ、ファイルが開けない</td></tr>
+      <tr><td><span class="num">2. 最初の設定は何か</span></td><td>共有ダイアログの初期表示を見る。Driveは「制限付き」、OneDriveは既定で編集許可がオン（ヘルプ記載）</td><td>制限付きのまま送ると相手が見られない／編集許可のまま送ると意図せず編集される</td></tr>
+      <tr><td><span class="num">3. 容量は足りるか</span></td><td>無料枠を見る。Drive 15GB、OneDrive 5GB、Dropbox 2GB。DriveはGmail・フォトと共有</td><td>容量不足でアップロードできない／有料プランへの誘導が出る</td></tr>
+    </table>
+    </div>
+
+    <h2>判定</h2>
+    <div class="verdict"><p><b>容量と共有のしやすさを両方見るなら、まずGoogle Drive。</b>無料15GBで一番大きく、共有リンク作成も約2分・8クリックで実測でき、閲覧者はアカウント不要でした。ただし最初の設定は「制限付き」なので、切り替え忘れに注意です。<b>Dropboxは閲覧だけのリンクを送る用途なら使えますが、無料枠2GBは一番小さい。</b>編集まで共有するときは相手もアカウントが必要です。<b>OneDriveは無料5GBで中間ですが、既定で編集許可がオン（ヘルプ記載）なので、送るときに権限を確認するのが安心です。</b>DropboxとOneDriveの操作は今回実測できていないため、実際のクリック数・所要時間は未確認です。</p></div>
+
+    <h2>注記</h2>
+    <ul>
+      <li><b>実測できたのはGoogle Driveだけ：</b>Dropboxはログイン画面で止まり、OneDriveはポータルが承認待ちで開けなかったため、共有操作の実測はできていません。記事では「検証できなかった」と明記し、性能の評価にはしていません。</li>
+      <li><b>受信者側の実際の閲覧は試していません：</b>閲覧者のアカウント要否は、Driveは共有ダイアログの画面表示、DropboxとOneDriveは公式ヘルプの記載にもとづきます。実際に相手側の画面で開けるかどうかは試していません。</li>
+      <li><b>Google Driveの実測について：</b>VMブラウザにログイン済みの作業用Googleアカウントで操作しました。新しいサービスへのログインではありません。テストファイルは完全に削除し、共有リンクはコピーせず誰にも送っていません。</li>
+      <li><b>容量の出典：</b>各サービスの無料枠は2026-11-27に公式ページで確認した表記です。プラン変更で変わることがあります。</li>
+      <li><b>OneDriveのメールボックス容量：</b>無料のMicrosoftアカウントにはメールボックス容量15GBの表記もありますが、OneDriveの保存容量5GBとは別です。</li>
+    </ul>
+
+    <div class="back"><a href="index.html">&lt; ワークツール試し隊トップへ戻る</a></div>
+  </main>
+
+  <footer>
+    <p>© ワークツール試し隊 編集部 ｜ <a href="index.html#pr">広告について</a> ｜ <a href="privacy.html">プライバシーポリシー</a> ｜ <a href="https://www.youtube.com/@worktoollabo" target="_blank" rel="noopener">お問い合わせ（YouTube）</a></p>
+  </footer>
+</div>
+</body>
+</html>
