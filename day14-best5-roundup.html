@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2週間検証して残った時短ツール＆ガジェット ベスト5と、買わなくていいもの｜ワークツール試し隊</title>
+<meta name="description" content="2週間・14本の検証から残った時短道具ベスト5を発表。1位はUGREEN Nexode 65W充電器。モニターアーム、K855、ライトバー、USB-Cハブの順位と理由、買わなくていいもの3つも整理。各Dayの記事へのリンク付き。">
+<style>
+  :root{
+    --bg:#f3f7fc; --surface:#ffffff; --line:#dcebf5;
+    --ink:#17334d; --muted:#5d7285; --blue:#0284c7; --sky:#0ea5e9; --cyan:#06b6d4; --accent:#f97316; --green:#16a34a;
+    --shadow:0 10px 30px rgba(2,132,199,.10);
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);line-height:1.9;
+    font-family:system-ui,-apple-system,"Hiragino Sans","Noto Sans JP",sans-serif;}
+  .wrap{max-width:860px;margin:0 auto;padding:0 20px}
+  header.top{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);margin:0 -20px;padding:12px 20px;
+    display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+  .logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.05rem}
+  .logo .mark{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:12px;
+    background:linear-gradient(135deg,var(--sky),var(--cyan));color:#fff;font-weight:900;font-size:1.1rem;
+    box-shadow:0 6px 16px rgba(14,165,233,.35)}
+  .logo .sub{display:block;font-size:.68rem;font-weight:700;letter-spacing:.14em;color:var(--muted);line-height:1.2}
+  .logo a{color:var(--ink);text-decoration:none;display:flex;align-items:center;gap:10px}
+  nav{display:flex;align-items:center;flex-wrap:wrap}
+  nav a{color:var(--muted);text-decoration:none;margin-left:18px;font-size:.9rem;font-weight:700}
+  nav a:hover{color:var(--blue)}
+  nav a.yt{margin-left:20px;background:linear-gradient(90deg,#ef4444,#dc2626);color:#fff;border-radius:999px;
+    padding:7px 16px;box-shadow:0 6px 16px rgba(220,38,38,.28)}
+  nav a.yt:hover{color:#fff;opacity:.92}
+  main{padding:36px 0}
+  .badge{display:inline-block;font-size:.78rem;font-weight:800;letter-spacing:.08em;color:#fff;
+    background:linear-gradient(90deg,var(--sky),var(--cyan));border-radius:999px;padding:6px 14px;margin-bottom:18px;
+    box-shadow:0 6px 14px rgba(14,165,233,.30)}
+  h1{font-size:1.9rem;line-height:1.4;margin:0 0 10px;font-weight:900}
+  .meta{font-size:.85rem;font-weight:700;color:#0284c7;margin-bottom:24px}
+  .notice{background:#f0f9ff;border:1px solid #bae6fd;border-left:5px solid var(--sky);border-radius:14px;padding:18px 22px;color:var(--muted);font-size:.92rem;margin:0 0 28px}
+  .notice b{color:var(--ink)}
+  h2{font-size:1.25rem;font-weight:900;letter-spacing:.04em;color:var(--ink);margin:46px 0 16px;display:flex;align-items:center;gap:10px}
+  h2::before{content:"";width:10px;height:24px;border-radius:6px;background:linear-gradient(180deg,var(--sky),var(--cyan))}
+  h3{font-size:1.1rem;margin:24px 0 8px}
+  p{margin:0 0 16px}
+  .panel{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:26px;margin:0 0 14px;box-shadow:var(--shadow)}
+  .panel p:last-child{margin-bottom:0}
+  .rank{display:flex;gap:18px;align-items:flex-start;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:24px;margin:0 0 14px;box-shadow:var(--shadow)}
+  .rank .no{flex:0 0 auto;width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;font-weight:900;color:#fff;background:linear-gradient(135deg,var(--sky),var(--cyan))}
+  .rank.first .no{background:linear-gradient(135deg,#f97316,#ef4444)}
+  .rank h3{margin:0 0 6px}
+  .rank p{margin:0 0 8px;color:var(--muted)}
+  .rank p:last-child{margin-bottom:0}
+  .rank .detail{font-size:.9rem}
+  .rank .detail a{color:var(--blue);font-weight:800;text-decoration:none}
+  .afflink{display:inline-block;background:linear-gradient(90deg,#f97316,#ef4444);color:#fff;font-weight:800;border-radius:999px;padding:12px 24px;text-decoration:none;margin:6px 0 4px;box-shadow:0 10px 22px rgba(249,115,22,.35);font-size:.92rem}
+  .afflink:hover{opacity:.92}
+  .verdict{background:#f0fdf4;border:2px dashed #86efac;border-radius:16px;padding:20px 24px;margin:0 0 14px}
+  .verdict b{color:var(--green)}
+  ul{margin:0 0 14px;padding-left:22px;color:var(--muted)}
+  li{margin-bottom:6px}
+  li b{color:var(--ink)}
+  .back{margin-top:40px;padding-top:20px;border-top:1px solid var(--line)}
+  .back a{display:inline-block;color:var(--blue);text-decoration:none;font-weight:800;font-size:.9rem;background:#fff;border:2px solid #7dd3fc;border-radius:999px;padding:8px 18px}
+  footer{border-top:1px solid var(--line);margin-top:32px;padding:26px 0 40px;color:var(--muted);font-size:.85rem}
+  footer a{color:var(--blue);text-decoration:none}
+  @media(max-width:560px){h1{font-size:1.5rem}nav a{margin-left:12px}.panel{padding:20px}.notice{padding:16px 18px}.rank{padding:18px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="logo"><a href="index.html"><span class="mark">W</span><span>ワークツール試し隊<span class="sub">ワークツールラボ</span></span></a></div>
+    <nav><a href="index.html#reviews">検証記事</a><a href="index.html#pr">PR</a><a class="yt" href="https://www.youtube.com/@worktoollabo" target="_blank" rel="noopener">YouTube</a></nav>
+  </header>
+
+  <main>
+    <span class="badge">第14弾</span>
+    <h1>2週間検証して残った時短ツール＆ガジェット ベスト5と、買わなくていいもの</h1>
+    <p class="meta">第14弾 / まとめ / 検証日：2026-11-28 #PR</p>
+
+    <p class="notice"><b>#PR 開示：</b>この記事には楽天アフィリエイトリンクが含まれています。リンク先で購入があった場合、当メディアに報酬が発生することがあります。各商品の仕様は楽天商品ページの公開情報で確認しています（Day2・Day4・Day6・Day8・Day12の各記事と同じ情報です）。手元に現物はなく、試用レビューではありません。価格は変動するため断定しません。リンク先の表示価格をご確認ください。</p>
+
+    <h2>結論</h2>
+    <div class="panel">
+      <p><b>結論：</b>2週間・14本の検証で残った時短道具の共通点は、<b>「机の上が片付くもの」</b>でした。1位は充電器3個を1個にまとめるUGREEN Nexode 65W。2位はモニターアーム、3位はテンキーレスキーボード。どれも「買った瞬間に机が広くなる」ものです。逆に、買わなくていいものは「高いものにいきなり手を出すこと」と「用途を間違えた買い方」。まず無料枠・後付けパーツで試すのが、この2週間の結論です。</p>
+    </div>
+
+    <h2>ベスト5</h2>
+    <p>順位は編集部の判断です（机の上がどれだけ片付くか／手間がどれだけ減るか）。売上や人気のランキングではありません。</p>
+
+    <div class="rank first">
+      <span class="no">1位</span>
+      <div>
+        <h3>UGREEN Nexode 65W 3ポート：充電器3個を1個に</h3>
+        <p>ノートPC＋スマホ＋イヤホンの充電器3個が、1個にまとまります。2台同時はノート45W＋スマホ20Wの配分で、ノートの充電が進みます。机の上の充電器が1個になるのが、一番の時短でした。</p>
+        <a class="afflink" href="https://hb.afl.rakuten.co.jp/ichiba/59c9683b.bc2fdc8a.59c9683c.70170620/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fugreen-gear%2F10334%2F" target="_blank" rel="noopener sponsored">#PR 楽天市場で UGREEN Nexode 65W 3ポートを見る（UGREEN公式楽天市場店）</a>
+        <p class="detail">詳細：<a href="day12-gan-charger-65w.html">Day12「GaN充電器65Wは正義か」</a>（「65Wは合計出力」の落とし穴と、1ポート型との比較）</p>
+      </div>
+    </div>
+
+    <div class="rank">
+      <span class="no">2位</span>
+      <div>
+        <h3>サンワダイレクト モニターアーム 100-LAC006：机が広くなる</h3>
+        <p>モニターを持ち上げると、台座分のスペースが空きます。「机が30cm広くなる」というより、台座がなくなる分のスペースがそのまま作業場所になります。ガススプリング式とポール式の違いはDay2記事で整理しています。</p>
+        <a class="afflink" href="https://hb.afl.rakuten.co.jp/ichiba/59c9683b.bc2fdc8a.59c9683c.70170620/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fsanwadirect%2F100-lac006%2F" target="_blank" rel="noopener sponsored">#PR 楽天市場で モニターアーム 100-LAC006 を見る（サンワダイレクト）</a>
+        <p class="detail">詳細：<a href="day2-monitor-arm-guide.html">Day2「モニターアーム入門」</a>（3方式の違いと買う前の4点チェック表）</p>
+      </div>
+    </div>
+
+    <div class="rank">
+      <span class="no">3位</span>
+      <div>
+        <h3>ロジクール SIGNATURE K855：幅が約85mm狭い</h3>
+        <p>テンキーレスで幅355.2mm。フルサイズ約440mm級より約85mm狭く、その分マウスのスペースが広がります。数字が小さい人には数字入力のしにくさが残りますが、デスク幅の節約効果は確かです。打鍵音は実機で比べていないため断定しません。</p>
+        <a class="afflink" href="https://hb.afl.rakuten.co.jp/ichiba/59c9683b.bc2fdc8a.59c9683c.70170620/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fe-cutestyle%2Fp000000801665%2F" target="_blank" rel="noopener sponsored">#PR 楽天市場で ロジクール SIGNATURE K855 を見る（ディーライズ2号店）</a>
+        <p class="detail">詳細：<a href="day8-keyboard-tenkey-guide.html">Day8「テンキー付き vs テンキーレス」</a>（デスク幅と作業効率で選ぶ）</p>
+      </div>
+    </div>
+
+    <div class="rank">
+      <span class="no">4位</span>
+      <div>
+        <h3>Quntis モニターライトバー 52cm：夜の映り込み対策</h3>
+        <p>モニターの上に置くので机の場所を取りません。夜のデスクで画面への映り込みが気になる人、デスクライトの置き場所に困っている人に向いています。通常のデスクライトとの向き不向きはDay4記事で比較しています。</p>
+        <a class="afflink" href="https://hb.afl.rakuten.co.jp/ichiba/59c9683b.bc2fdc8a.59c9683c.70170620/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fnuoshilan%2Fli-hy-0206-bk-qu-ws%2F" target="_blank" rel="noopener sponsored">#PR 楽天市場で Quntis モニターライトバー 52cm を見る（Nuoshilan store）</a>
+        <p class="detail">詳細：<a href="day4-monitor-light-bar.html">Day4「モニターライトバーは必要か？」</a>（通常のデスクライトとの比較）</p>
+      </div>
+    </div>
+
+    <div class="rank">
+      <span class="no">5位</span>
+      <div>
+        <h3>UGREEN Revodok USB-Cハブ 6-in-1：端子不足を1個で解消</h3>
+        <p>4K/60Hz出力とPD100W給電を1個でまかないます。ノートPCの端子不足で「ハブを買うか、モニターを買い替えるか」で迷っている人には、まずハブで試すのが安い解決策です。「4K対応」のHzの落とし穴はDay6記事で整理しています。</p>
+        <a class="afflink" href="https://hb.afl.rakuten.co.jp/ichiba/59c9683b.bc2fdc8a.59c9683c.70170620/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fugreen-gear%2F45363%2F" target="_blank" rel="noopener sponsored">#PR 楽天市場で UGREEN Revodok USB-Cハブ 6-in-1 を見る（UGREEN公式楽天市場店）</a>
+        <p class="detail">詳細：<a href="day6-usb-c-hub-guide.html">Day6「USB-Cハブの失敗しない選び方」</a>（4K/60Hz・PD給電・対応チェック表）</p>
+      </div>
+    </div>
+
+    <h2>買わなくていいもの3つ</h2>
+    <ul>
+      <li><b>高いオフィスチェアをいきなり買うこと：</b>お尻が痛いならクッション、足がつかないならフットレスト、腰が反るならランバーサポート。3,000円台からの後付けパーツで十分な場合があります。詳しくは<a href="day10-chair-add-on-parts.html">Day10「オフィスチェアを買う前に」</a>へ。</li>
+      <li><b>1ポート充電器で3台まとめようとすること：</b>65Wは合計出力です。3台つなぐなら3ポート型、PC1台だけなら1ポート型。用途を間違えると買い直しになります。詳しくは<a href="day12-gan-charger-65w.html">Day12</a>へ。</li>
+      <li><b>有料のAIツールにいきなり課金すること：</b>要約・議事録・画像生成は無料枠で試せます。要約は<a href="day1-ai-summary-battle.html">Day1</a>、議事録は<a href="day3-ai-meeting-notes.html">Day3</a>、画像生成は<a href="day13-image-ai-work-test.html">Day13</a>で、それぞれ無料枠の実測を公開しています。まず無料枠で「自分の仕事に合うか」を確かめるのが先です。</li>
+    </ul>
+
+    <h2>14本の振り返り</h2>
+    <p>2週間でAIツール5本（Day1・Day3・Day7・Day9・Day13）、仕事効率化サービス3本（Day5・Day11＋Day14のまとめ）、デスクガジェット6本（Day2・Day4・Day6・Day8・Day10・Day12）を公開しました。記事は14本になり、Amazonアソシエイト申請の土台となる「オリジナル記事10本以上」を満たしました。次の14日は、再生数やクリックの手がかりを見ながら配分を調整する改善期に入ります。</p>
+
+    <h2>判定</h2>
+    <div class="verdict"><p><b>時短道具は「机の上が片付くもの」から選ぶ。</b>充電器・モニターアーム・キーボード・ライトバー・ハブ、どれも買った瞬間に机が広くなるか、手間が1つ減るものです。<b>買う前に試すものは、無料枠と後付けパーツで。</b>AIツールは無料枠で、椅子の悩みは3,000円台のパーツで、まず試してから判断するのが、この2週間の結論です。</p></div>
+
+    <h2>注記</h2>
+    <ul>
+      <li><b>試用レビューではありません：</b>手元に現物はなく、仕様は楽天商品ページの公開情報にもとづきます。発熱の体感や実際の充電速度、打鍵音などは測っていません。</li>
+      <li><b>価格は断定しません：</b>各商品の価格は変動します。購入時はリンク先の表示価格をご確認ください。</li>
+      <li><b>順位は編集部の判断：</b>机の上がどれだけ片付くか／手間がどれだけ減るか、で付けました。売上や人気のランキングではありません。</li>
+      <li><b>リンクの再利用：</b>この記事の楽天リンクは、Day2・Day4・Day6・Day8・Day12で発行済みのリンクと同じものです。新規発行はありません。</li>
+    </ul>
+
+    <div class="back"><a href="index.html">&lt; ワークツール試し隊トップへ戻る</a></div>
+  </main>
+
+  <footer>
+    <p>© ワークツール試し隊 編集部 ｜ <a href="index.html#pr">広告について</a> ｜ <a href="privacy.html">プライバシーポリシー</a> ｜ <a href="https://www.youtube.com/@worktoollabo" target="_blank" rel="noopener">お問い合わせ（YouTube）</a></p>
+  </footer>
+</div>
+</body>
+</html>

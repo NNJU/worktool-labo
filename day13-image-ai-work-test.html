@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>画像生成AIの仕事利用テスト：資料・SNS・ロゴ案で使えた／使えなかった例｜ワークツール試し隊</title>
+<meta name="description" content="ロゴ案・資料挿絵・SNS画像の3課題を、Pollinations.ai／ChatGPTゲスト／Microsoft Copilotで試した実測。ログインなしで3枚とも作れたのはPollinationsだけ。生成時間・サイズ・透かしの条件と実物を公開。">
+<style>
+  :root{
+    --bg:#f3f7fc; --surface:#ffffff; --line:#dcebf5;
+    --ink:#17334d; --muted:#5d7285; --blue:#0284c7; --sky:#0ea5e9; --cyan:#06b6d4; --accent:#f97316; --green:#16a34a;
+    --shadow:0 10px 30px rgba(2,132,199,.10);
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);line-height:1.9;
+    font-family:system-ui,-apple-system,"Hiragino Sans","Noto Sans JP",sans-serif;}
+  .wrap{max-width:860px;margin:0 auto;padding:0 20px}
+  header.top{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);margin:0 -20px;padding:12px 20px;
+    display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+  .logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.05rem}
+  .logo .mark{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:12px;
+    background:linear-gradient(135deg,var(--sky),var(--cyan));color:#fff;font-weight:900;font-size:1.1rem;
+    box-shadow:0 6px 16px rgba(14,165,233,.35)}
+  .logo .sub{display:block;font-size:.68rem;font-weight:700;letter-spacing:.14em;color:var(--muted);line-height:1.2}
+  .logo a{color:var(--ink);text-decoration:none;display:flex;align-items:center;gap:10px}
+  nav{display:flex;align-items:center;flex-wrap:wrap}
+  nav a{color:var(--muted);text-decoration:none;margin-left:18px;font-size:.9rem;font-weight:700}
+  nav a:hover{color:var(--blue)}
+  nav a.yt{margin-left:20px;background:linear-gradient(90deg,#ef4444,#dc2626);color:#fff;border-radius:999px;
+    padding:7px 16px;box-shadow:0 6px 16px rgba(220,38,38,.28)}
+  nav a.yt:hover{color:#fff;opacity:.92}
+  main{padding:36px 0}
+  .badge{display:inline-block;font-size:.78rem;font-weight:800;letter-spacing:.08em;color:#fff;
+    background:linear-gradient(90deg,var(--sky),var(--cyan));border-radius:999px;padding:6px 14px;margin-bottom:18px;
+    box-shadow:0 6px 14px rgba(14,165,233,.30)}
+  h1{font-size:1.9rem;line-height:1.4;margin:0 0 10px;font-weight:900}
+  .meta{font-size:.85rem;font-weight:700;color:#0284c7;margin-bottom:24px}
+  .notice{background:#f0f9ff;border:1px solid #bae6fd;border-left:5px solid var(--sky);border-radius:14px;padding:18px 22px;color:var(--muted);font-size:.92rem;margin:0 0 28px}
+  .notice b{color:var(--ink)}
+  h2{font-size:1.25rem;font-weight:900;letter-spacing:.04em;color:var(--ink);margin:46px 0 16px;display:flex;align-items:center;gap:10px}
+  h2::before{content:"";width:10px;height:24px;border-radius:6px;background:linear-gradient(180deg,var(--sky),var(--cyan))}
+  h3{font-size:1.1rem;margin:24px 0 8px}
+  p{margin:0 0 16px}
+  .panel{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:26px;margin:0 0 14px;box-shadow:var(--shadow)}
+  .panel p:last-child{margin-bottom:0}
+  .tscroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0 0 18px;background:var(--surface);
+    border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow)}
+  table{width:100%;min-width:680px;border-collapse:collapse;font-size:.95rem;line-height:1.7}
+  th,td{border-bottom:1px solid var(--line);padding:14px 16px;text-align:left;vertical-align:top}
+  th{white-space:nowrap}
+  td:first-child{white-space:nowrap}
+  tr:last-child td{border-bottom:none}
+  th{background:#e0f2fe;color:#075985;font-weight:800}
+  td .num{color:#0284c7;font-weight:800}
+  .verdict{background:#f0fdf4;border:2px dashed #86efac;border-radius:16px;padding:20px 24px;margin:0 0 14px}
+  .verdict b{color:var(--green)}
+  .warn{background:#fff7ed;border:2px dashed #fdba74;border-radius:16px;padding:20px 24px;margin:0 0 14px}
+  .warn b{color:#c2410c}
+  ul{margin:0 0 14px;padding-left:22px;color:var(--muted)}
+  li{margin-bottom:6px}
+  li b{color:var(--ink)}
+  .gen-fig{margin:0 0 20px;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:24px 24px 16px;box-shadow:var(--shadow)}
+  .gen-fig img{display:block;width:100%;max-width:520px;height:auto;margin:0 auto;border-radius:12px}
+  .gen-fig figcaption{margin-top:12px;font-size:.82rem;line-height:1.6;color:var(--muted);text-align:center}
+  .gen-fig figcaption code{font-size:.78rem;background:#f0f9ff;border:1px solid #bae6fd;border-radius:6px;padding:1px 6px;color:#075985}
+  .back{margin-top:40px;padding-top:20px;border-top:1px solid var(--line)}
+  .back a{display:inline-block;color:var(--blue);text-decoration:none;font-weight:800;font-size:.9rem;background:#fff;border:2px solid #7dd3fc;border-radius:999px;padding:8px 18px}
+  footer{border-top:1px solid var(--line);margin-top:32px;padding:26px 0 40px;color:var(--muted);font-size:.85rem}
+  footer a{color:var(--blue);text-decoration:none}
+  @media(max-width:560px){h1{font-size:1.5rem}nav a{margin-left:12px}.panel{padding:20px}.notice{padding:16px 18px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="logo"><a href="index.html"><span class="mark">W</span><span>ワークツール試し隊<span class="sub">ワークツールラボ</span></span></a></div>
+    <nav><a href="index.html#reviews">検証記事</a><a href="index.html#pr">PR</a><a class="yt" href="https://www.youtube.com/@worktoollabo" target="_blank" rel="noopener">YouTube</a></nav>
+  </header>
+
+  <main>
+    <span class="badge">第13弾</span>
+    <h1>画像生成AIの仕事利用テスト：資料・SNS・ロゴ案で使えた／使えなかった例</h1>
+    <p class="meta">第13弾 / AIツール / 検証日：2026-11-28 #PR</p>
+
+    <p class="notice"><b>#PR 開示：</b>この記事にはアフィリエイトリンクは含まれていません。紹介する3サービスはいずれも無料枠での検証です。Pollinations.aiの画像は実際に生成した実物を掲載しています。ChatGPTとMicrosoft Copilotは、ログインなしでは画像生成を試すことができませんでした（性能の評価ではなく、試せた範囲の報告です）。</p>
+
+    <h2>結論</h2>
+    <div class="panel">
+      <p><b>結論：</b>ログインなしで画像生成を試すなら、<b>Pollinations.aiの無料枠</b>が今回の条件では唯一の選択肢でした。ロゴ案・資料挿絵・SNS画像の3課題すべてを、1枚あたり約5〜6秒で生成できました。ただし<b>無料枠には「45秒に1枚まで」「右下に透かしが入る」「サイズは768px」の3つの条件</b>があります。ChatGPTはゲスト利用では画像生成がログイン必須、Microsoft Copilotはログインなしでは入力欄すら表示されませんでした。</p>
+    </div>
+
+    <h2>3サービスの結果まとめ</h2>
+    <div class="tscroll">
+    <table>
+      <colgroup><col style="width:22%"><col style="width:26%"><col style="width:26%"><col style="width:26%"></colgroup>
+      <tr><th>比べる点</th><th>Pollinations.ai</th><th>ChatGPT（ゲスト利用）</th><th>Microsoft Copilot</th></tr>
+      <tr><td><b>ログインなしで試せたか</b></td><td><span class="num">試せた</span>（アカウント不要）</td><td>試せなかった（画像生成はログイン必須）</td><td>試せなかった（入力欄なし）</td></tr>
+      <tr><td><b>生成できた枚数</b></td><td><span class="num">3枚</span>（ロゴ案・資料挿絵・SNS画像）</td><td>0枚</td><td>0枚</td></tr>
+      <tr><td><b>生成時間</b></td><td>1枚あたり<span class="num">約5〜6秒</span></td><td>—</td><td>—</td></tr>
+      <tr><td><b>無料枠の制限</b></td><td>IPあたり<span class="num">45秒に1枚</span>まで。連続で頼むとエラー</td><td>—</td><td>—</td></tr>
+      <tr><td><b>画像サイズ</b></td><td>1024pxで頼んだが<span class="num">768×768px</span>で返ってきた</td><td>—</td><td>—</td></tr>
+      <tr><td><b>透かし</b></td><td>右下に「pollinations.ai」が入る（消す設定でも消えず）</td><td>—</td><td>—</td></tr>
+    </table>
+    </div>
+
+    <h2>Pollinations.aiで実際に作った3枚</h2>
+    <p>Pollinations.aiは、URLに作りたい絵の説明（プロンプト）を入れて開くだけで画像が返ってきます。アカウント作成も課金もありません。今回は3つの仕事の場面を想定して、同じ条件で3枚を生成しました。生成時間は1枚あたり約5〜6秒でしたが、無料枠の「45秒に1枚」の制限があるため、3枚の生成には待ち時間込みで約2分かかりました。</p>
+
+    <h3>① ロゴ案：アイデア出しまで</h3>
+    <figure class="gen-fig">
+      <img src="assets/day13-logo.png" alt="Pollinations.aiで生成したロゴ案。紺とオレンジのコンパス風の抽象デザイン">
+      <figcaption>実際に生成したロゴ案（768×768px）。プロンプト：<code>minimalist flat vector logo, lightning bolt and wrench, navy blue and orange, white background, simple clean design, no text</code><br>紺×オレンジのコンパス風デザインにはなったが、クリーンなベクターロゴではない。「白背景」と頼んだのに灰青の背景になった。最終ロゴとしては使えず、「アイデア出し」まで。</figcaption>
+    </figure>
+
+    <h3>② 資料挿絵：そのまま使える出来</h3>
+    <figure class="gen-fig">
+      <img src="assets/day13-doc.png" alt="Pollinations.aiで生成した資料挿絵。デスクとノートPCとランプのある落ち着いたイラスト">
+      <figcaption>実際に生成した資料挿絵（768×768px）。プロンプト：<code>flat vector illustration of a tidy office desk with laptop, notebook and coffee cup, soft blue and orange palette, clean minimal style, no text</code><br>デスク・ノートPC・ランプ・観葉植物の落ち着いたイラスト。社内資料の挿絵としてはそのまま使える出来。壁の額縁の中身が空っぽなのはご愛敬。</figcaption>
+    </figure>
+
+    <h3>③ SNS画像：サムネイル素材として使える出来</h3>
+    <figure class="gen-fig">
+      <img src="assets/day13-sns.png" alt="Pollinations.aiで生成したSNS画像。ノートPCからロケットが飛び出すダイナミックなイラスト">
+      <figcaption>実際に生成したSNS画像（768×768px）。プロンプト：<code>vibrant flat illustration of a small rocket launching from an open laptop, orange and navy blue, energetic social media thumbnail style, no text</code><br>ノートPCからロケットが飛び出すダイナミックな構図。オレンジ×紺で目立つ。SNSのサムネイル素材として使える出来。</figcaption>
+    </figure>
+
+    <h2>無料枠の落とし穴：透かし・サイズ・制限</h2>
+    <div class="warn"><p><b>社外に出す資料に使う前に確認すること：</b>生成した3枚すべてに、右下に小さく「pollinations.ai」の透かし（ウォーターマーク）が入ります。透かしを消す設定（<code>nologo=true</code>）を付けて生成しましたが、消えませんでした。透かしの扱いや商用利用の条件は、公式の利用条件で確認してください。この記事では確認していないため断定しません。</p></div>
+    <ul>
+      <li><b>45秒に1枚まで：</b>無料枠はIPアドレスあたり45秒に1枚の制限があります。連続で3枚頼んだところ、2枚目で <code>402 FREE_LIMIT</code> のエラーが出ました。45秒待って再試行したら生成できました。まとめて何十枚も作る用途には向きません。</li>
+      <li><b>サイズは768px：</b>1024×1024で頼みましたが、返ってきたのは768×768のJPEGでした。大きな印刷物や高解像度が必要な用途には足りません。SNSや資料の挿絵なら十分なサイズです。</li>
+      <li><b>文字は入れないほうがいい：</b>今回は3枚とも「no text」で生成しました。画像生成AIは文字の描画が苦手で、文字を入れると崩れることが多いためです。文字はあとから別のツールで入れるのが無難です。</li>
+    </ul>
+
+    <h2>ChatGPTとCopilotはなぜ試せなかったか</h2>
+    <p>ChatGPTはゲスト利用（ログインなし）でテキストチャットは送れましたが、画像生成の指示を送ると「Creating image」と表示されたあと、「Log in to create or edit images for free」「Image creation is only available when you're logged in.」というログイン案内カードが表示され、画像は1枚も生成されませんでした。Microsoft Copilotは、ログインなしではチャットの入力欄自体が表示されず、「Sign into Copilot」とだけ出てきました。「Go to Chat」も「Create an image」もMicrosoftアカウントのサインイン画面に移動し、指示自体を送れませんでした。どちらもログインはしていません。</p>
+    <p>これは「性能が悪い」という話ではありません。ログインできる人なら、ChatGPTもCopilotも画像生成は使えるはずです。今回の条件は「ログインなしで試せるか」だった、というだけの話です。関連する過去の検証も同じ考え方です（<a href="day9-search-ai-comparison.html">Day9：検索AI比較</a>ではChatGPTゲスト利用だけが正解＋出典付きで答えられました）。</p>
+
+    <h2>判定</h2>
+    <div class="verdict"><p><b>資料の挿絵とSNSのサムネイル素材なら、ログイン不要のPollinations.aiで十分に使えます。</b>1枚5〜6秒、無料、アカウント不要。ただし透かしあり・768px・45秒に1枚、の3条件付きです。<b>ロゴは「案出し」まで。</b>最終ロゴはデザイナーか有料ツールで仕上げるのが正解です。<b>ChatGPTとCopilotの画像生成は、ログインできる人なら別枠で試す価値があります。</b>ログインなしでは試せませんでした。</p></div>
+
+    <h2>注記</h2>
+    <ul>
+      <li><b>実測の範囲：</b>Pollinations.aiの3枚は2026-11-28にVMからAPI経由で実際に生成し、目視で確認したものです。生成時間・サイズ・制限の数字はこの日の実測です。無料枠の条件は変わることがあります。</li>
+      <li><b>透かしの商用利用条件：</b>公式の利用条件はこの記事では確認していません。社外に出す資料に使う場合は、必ず公式の条件を確認してください。</li>
+      <li><b>ChatGPT・Copilotの評価：</b>ログインなしでは画像生成を試せなかったため、画質や性能の評価はしていません。「使えなかった」のではなく「この条件では試せなかった」という報告です。</li>
+      <li><b>プロンプトは英語で：</b>今回は英語のプロンプトで生成しました。日本語のプロンプトでも生成できますが、英語のほうが意図どおりの絵になりやすい傾向があります（今回の検証では日本語プロンプトの比較はしていません）。</li>
+    </ul>
+
+    <div class="back"><a href="index.html">&lt; ワークツール試し隊トップへ戻る</a></div>
+  </main>
+
+  <footer>
+    <p>© ワークツール試し隊 編集部 ｜ <a href="index.html#pr">広告について</a> ｜ <a href="privacy.html">プライバシーポリシー</a> ｜ <a href="https://www.youtube.com/@worktoollabo" target="_blank" rel="noopener">お問い合わせ（YouTube）</a></p>
+  </footer>
+</div>
+</body>
+</html>
